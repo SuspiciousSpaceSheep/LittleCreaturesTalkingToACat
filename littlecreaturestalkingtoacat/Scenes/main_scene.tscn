@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://srowco0704s"]
+[gd_scene load_steps=3 format=3 uid="uid://srowco0704s"]
+
+[ext_resource type="Script" uid="uid://tu6r137jjarv" path="res://Scripts/CameraMovement.gd" id="1_6l7je"]
+[ext_resource type="Texture2D" uid="uid://cqn1a48dygtug" path="res://Textures/DEBUG/Checker_Background.png" id="2_6l7je"]
 
 [node name="MainScene" type="Node"]
+
+[node name="CameraMovement" type="Node" parent="." node_paths=PackedStringArray("background")]
+script = ExtResource("1_6l7je")
+background = NodePath("../Background")
+speed = 100.0
+edge_percent = 10.0
+
+[node name="Camera2D" type="Camera2D" parent="CameraMovement"]
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("2_6l7je")
