@@ -1,7 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpcmv36wkq5vb"]
+[gd_scene load_steps=17 format=3 uid="uid://bpcmv36wkq5vb"]
 
 [ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_23sq3"]
+[ext_resource type="PackedScene" uid="uid://bfgaup10xr37f" path="res://Assets/mainscene.glb" id="1_cruhp"]
 [ext_resource type="Shader" uid="uid://dbi1ku58eep01" path="res://shaders/outline_shader.gdshader" id="1_n8be1"]
+[ext_resource type="PackedScene" uid="uid://t12xviy10swh" path="res://Assets/bunny.glb" id="2_k3vav"]
 [ext_resource type="Material" uid="uid://cc3hvx0rba254" path="res://shaders/selectable_material.tres" id="2_tp648"]
 [ext_resource type="Script" uid="uid://5go11vklnp6q" path="res://Scripts/outline_hover.gd" id="3_0jpfo"]
 
@@ -13,13 +15,13 @@ ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
 sky_material = SubResource("ProceduralSkyMaterial_23sq3")
 
 [sub_resource type="Environment" id="Environment_tp648"]
-background_mode = 2
+background_mode = 1
+background_color = Color(0.9453599, 0.6932507, 0.8624387, 1)
 sky = SubResource("Sky_n8be1")
+ambient_light_source = 2
+ambient_light_color = Color(0.49598122, 0.43752852, 0.59683603, 1)
 tonemap_mode = 2
 glow_enabled = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_icno0"]
-size = Vector3(20, 0.2, 2)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3sd7o"]
 
@@ -37,8 +39,8 @@ next_pass = SubResource("ShaderMaterial_n8be1")
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0jpfo"]
 render_priority = 0
 shader = ExtResource("1_n8be1")
-shader_parameter/outline_color = Color(0, 0, 0, 1)
-shader_parameter/outline_width = 1.0
+shader_parameter/outline_color = Color(0.9498467, 0.58522534, 0.83285016, 1)
+shader_parameter/outline_width = 5.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cruhp"]
 next_pass = SubResource("ShaderMaterial_0jpfo")
@@ -50,34 +52,39 @@ height = 1.0
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-light_color = Color(1, 0.12156863, 0.4509804, 1)
+transform = Transform3D(0.58294576, 0.70365524, -0.40625554, 2.7805946e-08, 0.49999994, 0.86602545, 0.8125111, -0.50484586, 0.2914728, 0, 0, 0)
 shadow_enabled = true
+shadow_opacity = 0.6
+sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tp648")
 
-[node name="Floor" type="MeshInstance3D" parent="."]
-mesh = SubResource("BoxMesh_icno0")
+[node name="mainscene" parent="." instance=ExtResource("1_cruhp")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="Character1" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.025368, 1.1087316, 0)
+[node name="bunny2" parent="." instance=ExtResource("2_k3vav")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+
+[node name="Character1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, -2.927486, 0.46204412, 0)
 mesh = SubResource("CapsuleMesh_3sd7o")
-skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_tp648")
 
-[node name="Character2" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7317715, 1.1508946, 0)
+[node name="Character2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.385, 0, 0, 0, 0.385, 0, 0, 0, 0.385, 2.732, 0.39219314, 0)
 mesh = SubResource("CylinderMesh_3xosi")
+skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_cruhp")
 
-[node name="Character3" type="MeshInstance3D" parent="Floor"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9133224, 0.5622411, 0)
+[node name="Character3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 2.7401712, 0.92292225, 0.0018880367)
 mesh = SubResource("CapsuleMesh_1abo5")
 skeleton = NodePath("../Character2")
 script = ExtResource("3_0jpfo")
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.0631242, 5.5820947)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97601366, 1.3705893)
+fov = 50.0
 script = ExtResource("1_23sq3")
-speed = 20.0
+speed = 1.0
