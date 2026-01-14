@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LittleCreaturesTalkingToACat"
-run/main_scene="uid://srowco0704s"
+run/main_scene="uid://bpcmv36wkq5vb"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
