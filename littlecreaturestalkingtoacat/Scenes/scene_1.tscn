@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpcmv36wkq5vb"]
+[gd_scene load_steps=19 format=3 uid="uid://bpcmv36wkq5vb"]
 
 [ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_23sq3"]
 [ext_resource type="PackedScene" uid="uid://bfgaup10xr37f" path="res://Assets/mainscene.glb" id="1_cruhp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://t12xviy10swh" path="res://Assets/bunny.glb" id="2_k3vav"]
 [ext_resource type="Material" uid="uid://cc3hvx0rba254" path="res://shaders/selectable_material.tres" id="2_tp648"]
 [ext_resource type="Script" uid="uid://5go11vklnp6q" path="res://Scripts/outline_hover.gd" id="3_0jpfo"]
+[ext_resource type="Script" uid="uid://ct2csg7lukix4" path="res://Assets/bunny.gd" id="3_3pxkc"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -22,6 +23,9 @@ ambient_light_source = 2
 ambient_light_color = Color(0.49598122, 0.43752852, 0.59683603, 1)
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3pxkc"]
+size = Vector3(1.7127686, 1.2629395, 1.6845703)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3sd7o"]
 
@@ -65,6 +69,14 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 
 [node name="bunny2" parent="." instance=ExtResource("2_k3vav")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+script = ExtResource("3_3pxkc")
+
+[node name="Area3D" type="Area3D" parent="bunny2"]
+transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, -0.99872637, 0.5937661, -1.9256876)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bunny2/Area3D"]
+transform = Transform3D(1.0000001, 0, -3.5527137e-15, 0, 1.0000001, 0, 3.5527137e-15, 0, 1.0000001, 0, 0, 0)
+shape = SubResource("BoxShape3D_3pxkc")
 
 [node name="Character1" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, -2.927486, 0.46204412, 0)
@@ -88,3 +100,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97601366, 1.3705893)
 fov = 50.0
 script = ExtResource("1_23sq3")
 speed = 1.0
+
+[connection signal="input_event" from="bunny2/Area3D" to="bunny2" method="_on_area_3d_input_event"]

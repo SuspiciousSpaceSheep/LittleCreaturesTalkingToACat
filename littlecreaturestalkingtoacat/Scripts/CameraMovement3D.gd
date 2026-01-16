@@ -1,4 +1,4 @@
-extends Node
+extends Camera3D
 
 @export var speed : float = 5.0
 @export var edge_fraction: float = 0.1
@@ -30,5 +30,3 @@ func _process(_delta: float):
 	#elif mousePos.x > get_viewport().size.x - get_viewport().size.x / edge_percent:
 		#camera.h_offset += speed * _delta;
 		
-		
-	
