@@ -1,0 +1,13 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://0maehwiujwac"]
+
+[ext_resource type="Texture2D" uid="uid://bdinblvp4w8e4" path="res://Dialogue/textbox_creatures_name.png" id="1_w1bvo"]
+
+[resource]
+texture = ExtResource("1_w1bvo")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 23.0
+texture_margin_bottom = 29.0
+axis_stretch_horizontal = 2
+axis_stretch_vertical = 2
+region_rect = Rect2(0, 0, 283, 89)

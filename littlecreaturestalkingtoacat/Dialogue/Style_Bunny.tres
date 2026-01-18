@@ -41,12 +41,38 @@ overrides = {
 "box_margin_bottom": "50.0",
 "box_panel": "\"res://Dialogue/new_style_box_texture_bunny.tres\"",
 "box_size": "Vector2(1000, 200)",
-"text_use_global_font": "false"
+"name_label_box_modulate": "Color(1, 1, 1, 1)",
+"name_label_box_panel": "\"res://Dialogue/new_style_box_name_texture_bunny.tres\"",
+"name_label_box_use_global_color": "false",
+"name_label_custom_color": "Color(1, 0.40392157, 0.53333336, 1)",
+"name_label_custom_font_size": "30.0",
+"name_label_font": "\"res://Dialogue/puffinarcade.ttf\"",
+"name_label_use_global_color": "false",
+"name_label_use_global_font": "false",
+"name_label_use_global_font_size": "false",
+"normal_font": "\"res://Dialogue/puffinarcade.ttf\"",
+"text_alignment": "1",
+"text_custom_color": "Color(0.36078432, 0.2784314, 0.40784314, 1)",
+"text_size": "40.0",
+"text_use_global_color": "false",
+"text_use_global_font": "false",
+"text_use_global_size": "false"
 }
 
 [sub_resource type="Resource" id="Resource_ukwjg"]
 script = ExtResource("2_0mdh7")
 scene = ExtResource("7_h5xcu")
+
+[sub_resource type="Resource" id="Resource_b2int"]
+script = ExtResource("2_0mdh7")
+scene = ExtResource("8_b2int")
+overrides = {
+"boxes_stylebox_normal": "\"res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/choice_panel_cat.tres\"",
+"font_custom": "\"res://Dialogue/puffinarcade.ttf\"",
+"font_size_custom": "40.0",
+"font_size_use_global": "false",
+"font_use_global": "false"
+}
 
 [sub_resource type="Resource" id="Resource_76hqm"]
 script = ExtResource("2_0mdh7")
@@ -55,10 +81,6 @@ scene = ExtResource("9_fmmp7")
 [sub_resource type="Resource" id="Resource_k8x5o"]
 script = ExtResource("2_0mdh7")
 scene = ExtResource("10_kctjb")
-
-[sub_resource type="Resource" id="Resource_b2int"]
-script = ExtResource("2_0mdh7")
-scene = ExtResource("8_b2int")
 
 [resource]
 script = ExtResource("11_u4ryw")
@@ -75,4 +97,4 @@ layer_info = {
 "16": SubResource("Resource_76hqm"),
 "17": SubResource("Resource_k8x5o")
 }
-metadata/_latest_layer = "13"
+metadata/_latest_layer = "15"
