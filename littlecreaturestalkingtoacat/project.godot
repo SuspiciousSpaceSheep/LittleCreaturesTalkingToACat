@@ -22,14 +22,16 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Bunny": "res://Dialogue/Bunny.dch"
+"Bunny": "res://Dialogue/Bunny.dch",
+"Cat": "res://Dialogue/Cat.dch"
 }
 directories/dtl_directory={
 "Bunny_says_hi": "res://Dialogue/Bunny_says_hi.dtl"
 }
 layout/style_directory={
 "": "res://Dialogue/Style_Bunny.tres",
-"Style_Bunny": "res://Dialogue/Style_Bunny.tres"
+"Style_Bunny": "res://Dialogue/Style_Bunny.tres",
+"Style_Cat": "res://Dialogue/Style_Cat.tres"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
@@ -65,7 +67,7 @@ audio/channel_defaults={
 }
 }
 variables={}
-layout/style_list=["res://Dialogue/Style_Bunny.tres"]
+layout/style_list=["res://Dialogue/Style_Bunny.tres", "res://Dialogue/Style_Cat.tres"]
 layout/default_style="res://Dialogue/Style_Bunny.tres"
 glossary/default_case_sensitive=true
 
