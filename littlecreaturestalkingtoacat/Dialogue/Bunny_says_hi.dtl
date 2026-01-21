@@ -3,6 +3,11 @@ Bunny: Lena coded this hehe
 - Ohhhhhh
 - Wow
 Bunny: i wonder what happens if i put a  long text in here let's see
-join Cat leftmost [animation="Fade In Up" length="0.0"]
+join Cat left [animation="Fade In Up" length="0.0"]
 Cat: Meow \:)
+update Cat (cat_face2) [animation="Tada" fade="Fade Cross"]
 Cat: I'm the player character
+update Cat (cat_face3)
+Cat: Lena is changeing my look a lot
+update Cat (cat_face4)
+Cat: She's at it again

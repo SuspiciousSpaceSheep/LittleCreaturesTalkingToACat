@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://d34wkog26brxa"]
+
+[ext_resource type="PackedScene" uid="uid://bfgaup10xr37f" path="res://Assets/mainscene.glb" id="1_xtb1e"]
+[ext_resource type="Texture2D" uid="uid://ca46wc3vb1a6p" path="res://Assets/waschmaschine_textur.png" id="2_dn5c8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5lfti"]
+albedo_texture = ExtResource("2_dn5c8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sbvtr"]
+albedo_texture = ExtResource("2_dn5c8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fl65m"]
+albedo_texture = ExtResource("2_dn5c8")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_76yo1"]
+albedo_texture = ExtResource("2_dn5c8")
+
+[node name="mainscene" instance=ExtResource("1_xtb1e")]
+
+[node name="Cube" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_5lfti")
+
+[node name="Cylinder_001" parent="Cube" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_sbvtr")
+
+[node name="Cylinder_003" parent="Cube" index="2"]
+surface_material_override/0 = SubResource("StandardMaterial3D_fl65m")
+
+[node name="Cylinder_004" parent="Cube" index="3"]
+surface_material_override/0 = SubResource("StandardMaterial3D_76yo1")

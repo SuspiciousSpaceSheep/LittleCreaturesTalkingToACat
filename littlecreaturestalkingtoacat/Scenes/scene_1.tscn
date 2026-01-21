@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bpcmv36wkq5vb"]
 
+[ext_resource type="PackedScene" uid="uid://d34wkog26brxa" path="res://mainscene.tscn" id="1_3pxkc"]
 [ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_23sq3"]
-[ext_resource type="PackedScene" uid="uid://bfgaup10xr37f" path="res://Assets/mainscene.glb" id="1_cruhp"]
 [ext_resource type="Shader" uid="uid://dbi1ku58eep01" path="res://shaders/outline_shader.gdshader" id="1_n8be1"]
 [ext_resource type="PackedScene" uid="uid://t12xviy10swh" path="res://Assets/bunny.glb" id="2_k3vav"]
 [ext_resource type="Material" uid="uid://cc3hvx0rba254" path="res://shaders/selectable_material.tres" id="2_tp648"]
@@ -56,7 +56,7 @@ height = 1.0
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.58294576, 0.70365524, -0.40625554, 2.7805946e-08, 0.49999994, 0.86602545, 0.8125111, -0.50484586, 0.2914728, 0, 0, 0)
+transform = Transform3D(0.58294576, 0.70365524, -0.4062555, 2.7805946e-08, 0.49999994, 0.86602545, 0.8125111, -0.50484586, 0.29147282, 0, 0, 0)
 shadow_enabled = true
 shadow_opacity = 0.6
 sky_mode = 1
@@ -64,7 +64,7 @@ sky_mode = 1
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tp648")
 
-[node name="mainscene" parent="." instance=ExtResource("1_cruhp")]
+[node name="mainscene" parent="." instance=ExtResource("1_3pxkc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="bunny2" parent="." instance=ExtResource("2_k3vav")]
