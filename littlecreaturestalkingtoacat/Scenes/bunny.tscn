@@ -1,0 +1,22 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddwkivm71on71"]
+
+[ext_resource type="PackedScene" uid="uid://t12xviy10swh" path="res://Assets/bunny.glb" id="1_r3ltc"]
+[ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="2_xii3f"]
+[ext_resource type="Texture2D" uid="uid://bk3vrsyyvec6t" path="res://Assets/bunny_bunny_texture.png" id="3_pigs0"]
+[ext_resource type="Texture2D" uid="uid://cbmbiu4dj838g" path="res://shaders/rgb_curve.tres" id="4_5251d"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c3d61"]
+render_priority = 0
+shader = ExtResource("2_xii3f")
+shader_parameter/color = ExtResource("3_pigs0")
+shader_parameter/curve = ExtResource("4_5251d")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bys2s"]
+
+[node name="bunny2" instance=ExtResource("1_r3ltc")]
+
+[node name="bunny" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_c3d61")
+
+[node name="Cube_007" parent="bunny" index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_bys2s")

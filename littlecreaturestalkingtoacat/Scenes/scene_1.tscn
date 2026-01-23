@@ -7,6 +7,7 @@
 [ext_resource type="Material" uid="uid://cc3hvx0rba254" path="res://shaders/selectable_material.tres" id="2_tp648"]
 [ext_resource type="Script" uid="uid://5go11vklnp6q" path="res://Scripts/outline_hover.gd" id="3_0jpfo"]
 [ext_resource type="Script" uid="uid://ct2csg7lukix4" path="res://Assets/bunny.gd" id="3_3pxkc"]
+[ext_resource type="PackedScene" uid="uid://ddwkivm71on71" path="res://Scenes/bunny.tscn" id="8_rxb0p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -40,14 +41,9 @@ next_pass = SubResource("ShaderMaterial_n8be1")
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_3xosi"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0jpfo"]
-render_priority = 0
-shader = ExtResource("1_n8be1")
-shader_parameter/outline_color = Color(0.9498467, 0.58522534, 0.83285016, 1)
-shader_parameter/outline_width = 5.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cruhp"]
-next_pass = SubResource("ShaderMaterial_0jpfo")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r5xri"]
+next_pass = ExtResource("2_tp648")
+albedo_color = Color(1, 0.27058825, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_1abo5"]
 material = ExtResource("2_tp648")
@@ -69,6 +65,7 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 
 [node name="bunny2" parent="." instance=ExtResource("2_k3vav")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+visible = false
 script = ExtResource("3_3pxkc")
 
 [node name="Area3D" type="Area3D" parent="bunny2"]
@@ -87,7 +84,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_tp648")
 transform = Transform3D(0.385, 0, 0, 0, 0.385, 0, 0, 0, 0.385, 2.732, 0.39219314, 0)
 mesh = SubResource("CylinderMesh_3xosi")
 skeleton = NodePath("")
-surface_material_override/0 = SubResource("StandardMaterial3D_cruhp")
+surface_material_override/0 = SubResource("StandardMaterial3D_r5xri")
 
 [node name="Character3" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 2.7401712, 0.92292225, 0.0018880367)
@@ -100,5 +97,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97601366, 1.3705893)
 fov = 50.0
 script = ExtResource("1_23sq3")
 speed = 1.0
+
+[node name="bunny3" parent="." instance=ExtResource("8_rxb0p")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [connection signal="input_event" from="bunny2/Area3D" to="bunny2" method="_on_area_3d_input_event"]

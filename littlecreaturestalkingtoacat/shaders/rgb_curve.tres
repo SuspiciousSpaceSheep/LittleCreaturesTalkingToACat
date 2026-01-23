@@ -1,0 +1,8 @@
+[gd_resource type="CurveXYZTexture" load_steps=2 format=3 uid="uid://cbmbiu4dj838g"]
+
+[ext_resource type="Curve" uid="uid://c0k37x8vdl8mk" path="res://shaders/color_curve.tres" id="1_obfbi"]
+
+[resource]
+curve_x = ExtResource("1_obfbi")
+curve_y = ExtResource("1_obfbi")
+curve_z = ExtResource("1_obfbi")
