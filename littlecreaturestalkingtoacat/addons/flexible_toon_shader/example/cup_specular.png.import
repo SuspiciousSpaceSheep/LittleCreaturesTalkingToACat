@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wnmtqkjyv4qm"
-path.s3tc="res://.godot/imported/bunny_bunny_texture_1.png-d5dc9ea1656ee404de6986713c5f41e9.s3tc.ctex"
+uid="uid://cp5uychxblous"
+path="res://.godot/imported/cup_specular.png-67fd376e8d3f08cde7226bf38fa4025a.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "5ea530b7156f376c343f614c560d7b4f"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bunny_bunny_texture_1.png"
-dest_files=["res://.godot/imported/bunny_bunny_texture_1.png-d5dc9ea1656ee404de6986713c5f41e9.s3tc.ctex"]
+source_file="res://addons/flexible_toon_shader/example/cup_specular.png"
+dest_files=["res://.godot/imported/cup_specular.png-67fd376e8d3f08cde7226bf38fa4025a.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

@@ -3,10 +3,9 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://daubfv25uavgs"
-path.s3tc="res://.godot/imported/mainscene_seats_texture.png-3a2d72fc819f5762c870ca0ddaa7a2e5.s3tc.ctex"
+path="res://.godot/imported/mainscene_seats_texture.png-3a2d72fc819f5762c870ca0ddaa7a2e5.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
 "md5": "60c585ab3bcbfbcc7346d8834cd9e4d5"
@@ -15,11 +14,11 @@ generator_parameters={
 [deps]
 
 source_file="res://Assets/mainscene_seats_texture.png"
-dest_files=["res://.godot/imported/mainscene_seats_texture.png-3a2d72fc819f5762c870ca0ddaa7a2e5.s3tc.ctex"]
+dest_files=["res://.godot/imported/mainscene_seats_texture.png-3a2d72fc819f5762c870ca0ddaa7a2e5.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0

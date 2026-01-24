@@ -2,24 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bk3vrsyyvec6t"
-path.s3tc="res://.godot/imported/bunny_bunny_texture.png-af496aad1ec4f352db2d7bd29fcecda4.s3tc.ctex"
+uid="uid://bkyvdegdm02ev"
+path="res://.godot/imported/bunny_texture.png-478855b24bd59857879528ae1fcaeeb6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
-}
-generator_parameters={
-"md5": "b6e686016d3c02dc4e6e74c5d207a5e7"
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/bunny_bunny_texture.png"
-dest_files=["res://.godot/imported/bunny_bunny_texture.png-af496aad1ec4f352db2d7bd29fcecda4.s3tc.ctex"]
+source_file="res://Assets/bunny_texture.png"
+dest_files=["res://.godot/imported/bunny_texture.png-478855b24bd59857879528ae1fcaeeb6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

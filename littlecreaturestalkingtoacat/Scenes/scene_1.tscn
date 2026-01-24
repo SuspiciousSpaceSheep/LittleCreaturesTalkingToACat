@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpcmv36wkq5vb"]
+[gd_scene load_steps=22 format=3 uid="uid://bpcmv36wkq5vb"]
 
 [ext_resource type="PackedScene" uid="uid://d34wkog26brxa" path="res://mainscene.tscn" id="1_3pxkc"]
 [ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_23sq3"]
@@ -7,6 +7,8 @@
 [ext_resource type="Material" uid="uid://cc3hvx0rba254" path="res://shaders/selectable_material.tres" id="2_tp648"]
 [ext_resource type="Script" uid="uid://5go11vklnp6q" path="res://Scripts/outline_hover.gd" id="3_0jpfo"]
 [ext_resource type="Script" uid="uid://ct2csg7lukix4" path="res://Assets/bunny.gd" id="3_3pxkc"]
+[ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="6_7p6yt"]
+[ext_resource type="Texture2D" uid="uid://ca46wc3vb1a6p" path="res://Assets/waschmaschine_textur.png" id="7_nwpuv"]
 [ext_resource type="PackedScene" uid="uid://ddwkivm71on71" path="res://Scenes/bunny.tscn" id="8_rxb0p"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
@@ -49,13 +51,19 @@ albedo_color = Color(1, 0.27058825, 1, 1)
 material = ExtResource("2_tp648")
 height = 1.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_byxas"]
+render_priority = 0
+shader = ExtResource("6_7p6yt")
+shader_parameter/color = ExtResource("7_nwpuv")
+
 [node name="Node3D" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.58294576, 0.70365524, -0.4062555, 2.7805946e-08, 0.49999994, 0.86602545, 0.8125111, -0.50484586, 0.29147282, 0, 0, 0)
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
 shadow_enabled = true
 shadow_opacity = 0.6
-sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_tp648")
@@ -90,6 +98,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_r5xri")
 transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 2.7401712, 0.92292225, 0.0018880367)
 mesh = SubResource("CapsuleMesh_1abo5")
 skeleton = NodePath("../Character2")
+surface_material_override/0 = SubResource("ShaderMaterial_byxas")
 script = ExtResource("3_0jpfo")
 
 [node name="Camera3D" type="Camera3D" parent="."]

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcwju4vi4775i"]
+
+[ext_resource type="PackedScene" uid="uid://bve1ex055jy66" path="res://Assets/Blender/Sheep.blend" id="1_0sl4e"]
+
+[node name="Sheep" instance=ExtResource("1_0sl4e")]
