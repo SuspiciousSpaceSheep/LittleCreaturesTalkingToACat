@@ -11,17 +11,18 @@ func _ready() -> void:
 	print(mesh.get_active_material(0));
 	var mat = mesh.get_active_material(0);
 	outline_material = mat.next_pass as ShaderMaterial;
-	set_hightlighted(false);
+#	set_hightlighted(false);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 	
 func set_hightlighted(new_is_highlighted):
-	is_hightlighted = new_is_highlighted
-	if (new_is_highlighted):
-		outline_material.set_shader_parameter(outline_color_name, Vector4(0.0, 1.0, 0.0, 1.0))
-	else:
-		outline_material.set_shader_parameter(outline_color_name, Vector4(0.0, 1.0, 0.0, 0.0))
+	pass
+#	is_hightlighted = new_is_highlighted
+#	if (new_is_highlighted):
+#		outline_material.set_shader_parameter(outline_color_name, Vector4(0.0, 1.0, 0.0, 1.0))
+#	else:
+#		outline_material.set_shader_parameter(outline_color_name, Vector4(0.0, 1.0, 0.0, 0.0))
 
 # TODO: Add a global script that makes a mouse raycast, setting the objects to hightled or not
