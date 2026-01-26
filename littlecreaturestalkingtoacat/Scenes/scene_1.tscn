@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://ct2csg7lukix4" path="res://Assets/bunny.gd" id="3_3pxkc"]
 [ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="6_7p6yt"]
 [ext_resource type="Texture2D" uid="uid://ca46wc3vb1a6p" path="res://Assets/waschmaschine_textur.png" id="7_nwpuv"]
-[ext_resource type="PackedScene" uid="uid://ddwkivm71on71" path="res://Scenes/bunny.tscn" id="8_rxb0p"]
+[ext_resource type="PackedScene" uid="uid://bnka53lcje3g" path="res://Assets/bunny.tscn" id="10_7p6yt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -106,7 +106,8 @@ fov = 50.0
 script = ExtResource("1_23sq3")
 speed = 1.0
 
-[node name="bunny3" parent="." instance=ExtResource("8_rxb0p")]
+[node name="bunny4" parent="." instance=ExtResource("10_7p6yt")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+visible = false
 
 [connection signal="input_event" from="bunny2/Area3D" to="bunny2" method="_on_area_3d_input_event"]
