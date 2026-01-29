@@ -70,17 +70,20 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-variables={}
+variables={
+"test": false
+}
 layout/style_list=["res://Dialogue/Style_Bunny.tres", "res://Dialogue/Style_Cat.tres"]
 layout/default_style="res://Dialogue/Style_Bunny.tres"
 glossary/default_case_sensitive=true
 
 [display]
 
-window/size/viewport_width=1280
-window/size/viewport_height=720
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/mode=2
 window/stretch/mode="viewport"
-window/stretch/aspect="expand"
+window/stretch/aspect="keep_height"
 
 [editor_plugins]
 

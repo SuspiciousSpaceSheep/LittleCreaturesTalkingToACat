@@ -1,5 +1,6 @@
-extends Camera3D
+extends Node3D
 
+@export var cam: Camera3D
 @export var speed : float = 5.0
 @export var edge_fraction: float = 0.1
 @export var use_mouse_edges: bool = true
@@ -23,7 +24,7 @@ func _process(_delta: float):
 	
 	# Mouse edge detection
 	if use_mouse_edges:
-		var vp = get_viewport()
+		var vp = cam.get_viewport()
 		var x_pos_fraction = vp.get_mouse_position().x / vp.size.x
 		
 		if x_pos_fraction < edge_fraction:
