@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpcmv36wkq5vb"]
+[gd_scene format=3 uid="uid://bpcmv36wkq5vb"]
 
 [ext_resource type="PackedScene" uid="uid://d34wkog26brxa" path="res://mainscene.tscn" id="1_3pxkc"]
 [ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_23sq3"]
@@ -56,58 +56,74 @@ render_priority = 0
 shader = ExtResource("6_7p6yt")
 shader_parameter/color = ExtResource("7_nwpuv")
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="Curve3D" id="Curve3D_7p6yt"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -4.3929334, 0, -1.879314, 0, 0, 0, 0, 0, 0, -2.1211896, -4.7683716e-07, -2.0172186, 0, 0, 0, 0, 0, 0, -0.008129358, 4.7683716e-07, -1.9137616, 0, 0, 0, 0, 0, 0, 0.58148885, 0, -1.7792547, 0, 0, 0, 0, 0, 0, 1.524124, 9.536743e-07, -1.3777282, 0, 0, 0, 0, 0, 0, 1.562, 0, -0.119, 0, 0, 0, 0, 0, 0, 1.8812442, 0, 1.0702982, 0, 0, 0, 0, 0, 0, 1.8007289, -2.3841858e-07, 2.396673),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="Node3D" type="Node3D" unique_id=146646752]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=771763009]
 transform = Transform3D(0.58294576, 0.70365524, -0.4062555, 2.7805946e-08, 0.49999994, 0.86602545, 0.8125111, -0.50484586, 0.29147282, 0, 0, 0)
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
 shadow_enabled = true
 shadow_opacity = 0.6
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1565903434]
 environment = SubResource("Environment_tp648")
 
-[node name="mainscene" parent="." instance=ExtResource("1_3pxkc")]
+[node name="mainscene" parent="." unique_id=2037960735 instance=ExtResource("1_3pxkc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="bunny2" parent="." instance=ExtResource("2_k3vav")]
+[node name="bunny2" parent="." unique_id=1573646185 instance=ExtResource("2_k3vav")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("3_3pxkc")
 
-[node name="Area3D" type="Area3D" parent="bunny2"]
+[node name="Area3D" type="Area3D" parent="bunny2" unique_id=162488703]
 transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, -0.99872637, 0.5937661, -1.9256876)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bunny2/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bunny2/Area3D" unique_id=1497372477]
 transform = Transform3D(1.0000001, 0, -3.5527137e-15, 0, 1.0000001, 0, 3.5527137e-15, 0, 1.0000001, 0, 0, 0)
 shape = SubResource("BoxShape3D_3pxkc")
 
-[node name="Character1" type="MeshInstance3D" parent="."]
+[node name="Character1" type="MeshInstance3D" parent="." unique_id=2121089248]
 transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, -2.927486, 0.46204412, 0)
 mesh = SubResource("CapsuleMesh_3sd7o")
 surface_material_override/0 = SubResource("StandardMaterial3D_tp648")
 
-[node name="Character2" type="MeshInstance3D" parent="."]
+[node name="Character2" type="MeshInstance3D" parent="." unique_id=1117603912]
 transform = Transform3D(0.385, 0, 0, 0, 0.385, 0, 0, 0, 0.385, 2.732, 0.39219314, 0)
 mesh = SubResource("CylinderMesh_3xosi")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_r5xri")
 
-[node name="Character3" type="MeshInstance3D" parent="."]
+[node name="Character3" type="MeshInstance3D" parent="." unique_id=667436748]
 transform = Transform3D(0.325, 0, 0, 0, 0.325, 0, 0, 0, 0.325, 2.7401712, 0.92292225, 0.0018880367)
 mesh = SubResource("CapsuleMesh_1abo5")
 skeleton = NodePath("../Character2")
 surface_material_override/0 = SubResource("ShaderMaterial_byxas")
 script = ExtResource("3_0jpfo")
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97601366, 1.3705893)
-fov = 50.0
-script = ExtResource("1_23sq3")
-speed = 1.0
-
-[node name="bunny4" parent="." instance=ExtResource("10_7p6yt")]
+[node name="bunny4" parent="." unique_id=1766823376 instance=ExtResource("10_7p6yt")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 visible = false
+
+[node name="Path3D" type="Path3D" parent="." unique_id=2051832293]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.352562, 0, 1.92048)
+curve = SubResource("Curve3D_7p6yt")
+debug_custom_color = Color(0.8672242, 0.13768893, 0.0013233068, 1)
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D" unique_id=1527512266]
+transform = Transform3D(0.060586974, 2.0912587e-07, -0.99807, 0, 0.9999873, 2.0949408e-07, 0.99806887, -1.269482e-08, 0.06058704, -4.3929334, 0, -1.879314)
+loop = false
+tilt_enabled = false
+
+[node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D" unique_id=227629944]
+transform = Transform3D(-0.0008727611, -0.5000052, 0.8660677, 0.0015115908, 0.8660343, 0.50002444, -1.0000595, 0.001745371, -3.7857024e-08, -0.0019999929, 1.23, 0)
+script = ExtResource("1_23sq3")
+speed = 2.0
 
 [connection signal="input_event" from="bunny2/Area3D" to="bunny2" method="_on_area_3d_input_event"]

@@ -2,31 +2,42 @@ extends Camera3D
 
 @export var speed : float = 5.0
 @export var edge_fraction: float = 0.1
+@export var use_mouse_edges: bool = true
+@export var use_input_actions: bool = true
 
-@onready var camera : Camera3D  = get_node(".") as Camera3D
+var path_follow: PathFollow3D = null
 
-	
+func _ready():
+	# Find the PathFollow3D parent
+	if get_parent() is PathFollow3D:
+		path_follow = get_parent()
+	else:
+		push_warning("Camera3D should be a child of PathFollow3D for path movement to work")
+
+
 func _process(_delta: float):
-	var vp = get_viewport();
-
+	if not path_follow:
+		return
 	
-	var x_pos_fraction = vp.get_mouse_position().x / vp.size.x;
+	var movement_direction = 0.0
 	
-	if x_pos_fraction < edge_fraction:
-		camera.h_offset -= speed * _delta;
-	elif x_pos_fraction > (1-edge_fraction):
-		camera.h_offset += speed * _delta;
+	# Mouse edge detection
+	if use_mouse_edges:
+		var vp = get_viewport()
+		var x_pos_fraction = vp.get_mouse_position().x / vp.size.x
 		
-	#var transform : Transform3D = camera.get_camera_transform();
-	#if mousePos.x < 0:
-		#camera.get_camera_transform() -= speed * _delta;
-	#elif mousePos.x > 0:
-		#camera.h_offset += speed * _delta;
+		if x_pos_fraction < edge_fraction:
+			movement_direction -= 1.0
+		elif x_pos_fraction > (1 - edge_fraction):
+			movement_direction += 1.0
 	
+	# Input actions
+	if use_input_actions:
+		if Input.is_action_pressed("camera_move_left"):
+			movement_direction -= 1.0
+		if Input.is_action_pressed("camera_move_right"):
+			movement_direction += 1.0
 	
-	
-	#if mousePos.x < get_viewport().size.x / edge_percent:
-		#camera.h_offset -= speed * _delta;
-	#elif mousePos.x > get_viewport().size.x - get_viewport().size.x / edge_percent:
-		#camera.h_offset += speed * _delta;
-		
+	# Apply movement along the path
+	if movement_direction != 0.0:
+		path_follow.progress += movement_direction * speed * _delta

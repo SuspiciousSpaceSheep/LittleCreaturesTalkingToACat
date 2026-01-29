@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://path_camera_scene"]
+
+[ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_camera"]
+
+[node name="PathFollow3D" type="PathFollow3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.976, 1.371)
+fov = 50.0
+script = ExtResource("1_camera")
+speed = 5.0
+edge_fraction = 0.1
+use_mouse_edges = true
+use_input_actions = true
