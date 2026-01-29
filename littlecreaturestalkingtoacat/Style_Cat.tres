@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="DialogicStyle" load_steps=21 format=3 uid="uid://dwdrir1fcmmyw"]
+[gd_resource type="Resource" script_class="DialogicStyle" format=3 uid="uid://dwdrir1fcmmyw"]
 
 [ext_resource type="PackedScene" uid="uid://cqpb3ie51rwl5" path="res://addons/dialogic/Modules/DefaultLayoutParts/Base_Default/default_layout_base.tscn" id="1_airc8"]
 [ext_resource type="Script" uid="uid://bwg6yncmh2cml" path="res://addons/dialogic/Resources/dialogic_style_layer.gd" id="2_sii3t"]
 [ext_resource type="PackedScene" uid="uid://c1k5m0w3r40xf" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_FullBackground/full_background_layer.tscn" id="3_ijbpm"]
-[ext_resource type="PackedScene" uid="uid://c7rc317ob6ba2" path="res://Dialogue/5Portraits/custom_5_portraits.tscn" id="4_airc8"]
+[ext_resource type="PackedScene" uid="uid://crin0goh0yecl" path="res://Dialogue/5Portraits/custom_5_portraits.tscn" id="4_airc8"]
 [ext_resource type="PackedScene" uid="uid://cn674foxwedqu" path="res://addons/dialogic/Modules/DefaultLayoutParts/Layer_Input/full_advance_input_layer.tscn" id="5_jl7gm"]
 [ext_resource type="PackedScene" uid="uid://dcqsfh3hvlvds" path="res://Dialogue/CenteredChoices/custom_centered_choices.tscn" id="6_lhyr1"]
 [ext_resource type="PackedScene" uid="uid://dmhuwbpbsqo2t" path="res://Dialogue/VisualNovelTextbox/custom_visual_novel_textbox.tscn" id="7_u3dfl"]
@@ -31,17 +31,6 @@ scene = ExtResource("4_airc8")
 [sub_resource type="Resource" id="Resource_nneb3"]
 script = ExtResource("2_sii3t")
 scene = ExtResource("5_jl7gm")
-
-[sub_resource type="Resource" id="Resource_ei4wc"]
-script = ExtResource("2_sii3t")
-scene = ExtResource("6_lhyr1")
-overrides = {
-"boxes_stylebox_normal": "\"res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/choice_panel_cat.tres\"",
-"font_custom": "\"res://Dialogue/puffinarcade.ttf\"",
-"font_size_custom": "40.0",
-"font_size_use_global": "false",
-"font_use_global": "false"
-}
 
 [sub_resource type="Resource" id="Resource_de8js"]
 script = ExtResource("2_sii3t")
@@ -73,6 +62,17 @@ overrides = {
 [sub_resource type="Resource" id="Resource_yi7d0"]
 script = ExtResource("2_sii3t")
 scene = ExtResource("8_55be3")
+
+[sub_resource type="Resource" id="Resource_ei4wc"]
+script = ExtResource("2_sii3t")
+scene = ExtResource("6_lhyr1")
+overrides = {
+"boxes_stylebox_normal": "\"res://addons/dialogic/Modules/DefaultLayoutParts/Layer_VN_Choices/choice_panel_cat.tres\"",
+"font_custom": "\"res://Dialogue/puffinarcade.ttf\"",
+"font_size_custom": "40.0",
+"font_size_use_global": "false",
+"font_use_global": "false"
+}
 
 [sub_resource type="Resource" id="Resource_2wiyl"]
 script = ExtResource("2_sii3t")

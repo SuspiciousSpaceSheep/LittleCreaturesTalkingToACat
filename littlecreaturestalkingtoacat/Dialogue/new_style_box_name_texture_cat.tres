@@ -1,4 +1,4 @@
-[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://btgnlwdk31xi7"]
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://btgnlwdk31xi7"]
 
 [ext_resource type="Texture2D" uid="uid://ddpl6a8yee3tq" path="res://Dialogue/textbox_cat_name.png" id="1_xboa2"]
 
