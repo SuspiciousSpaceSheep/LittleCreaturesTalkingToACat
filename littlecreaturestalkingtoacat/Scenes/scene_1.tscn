@@ -20,12 +20,12 @@ sky_material = SubResource("ProceduralSkyMaterial_23sq3")
 
 [sub_resource type="Environment" id="Environment_tp648"]
 background_mode = 1
-background_color = Color(0.9453599, 0.6932507, 0.8624387, 1)
+background_color = Color(1, 0.8862745, 1, 1)
 sky = SubResource("Sky_n8be1")
 ambient_light_source = 2
-ambient_light_color = Color(0.49598122, 0.43752852, 0.59683603, 1)
-tonemap_mode = 2
-glow_enabled = true
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 0.5
+reflected_light_source = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3pxkc"]
 size = Vector3(1.7127686, 1.2629395, 1.6845703)
@@ -58,19 +58,20 @@ shader_parameter/color = ExtResource("7_nwpuv")
 
 [sub_resource type="Curve3D" id="Curve3D_7p6yt"]
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2, 0, -5, 0, 0, 0, 3, 0, 0, 2, 0, -5, 0, 0, -3, 3, 0, 0, 7, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -2, 0, -5, 0, 0, 0, 1.6, 0, 0, 4.4992824, 0, -5, 0, 0, -1.6, 0, 0, 0, 7, 0, -2.2781343, 0, 0, 0, 0, 0, 0, 7, 0, 1.215),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
 }
-point_count = 3
+point_count = 4
 
 [node name="Node3D" type="Node3D" unique_id=146646752]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=771763009]
-transform = Transform3D(0.58294576, 0.70365524, -0.4062555, 2.7805946e-08, 0.49999994, 0.86602545, 0.8125111, -0.50484586, 0.29147282, 0, 0, 0)
+transform = Transform3D(0.58294576, 0.70365524, -0.4062555, 2.7805948e-08, 0.49999997, 0.86602545, 0.8125111, -0.50484586, 0.29147282, 0, 0, 0)
 light_volumetric_fog_energy = 0.0
 light_specular = 0.0
 shadow_enabled = true
-shadow_opacity = 0.6
+shadow_bias = 0.744
+shadow_opacity = 0.5
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1565903434]
 environment = SubResource("Environment_tp648")
@@ -78,16 +79,21 @@ environment = SubResource("Environment_tp648")
 [node name="mainscene" parent="." unique_id=2037960735 instance=ExtResource("1_3pxkc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="bunny2" parent="." unique_id=1573646185 instance=ExtResource("2_k3vav")]
+[node name="bunny" parent="." unique_id=1766823376 instance=ExtResource("10_7p6yt")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 script = ExtResource("3_3pxkc")
 
-[node name="Area3D" type="Area3D" parent="bunny2" unique_id=162488703]
+[node name="Area3D" type="Area3D" parent="bunny" unique_id=162488703]
 transform = Transform3D(0.19, 0, 0, 0, 0.19, 0, 0, 0, 0.19, -0.99872637, 0.5937661, -1.9256876)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bunny2/Area3D" unique_id=1497372477]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bunny/Area3D" unique_id=1497372477]
 transform = Transform3D(1.0000001, 0, -3.5527137e-15, 0, 1.0000001, 0, 3.5527137e-15, 0, 1.0000001, 0, 0, 0)
 shape = SubResource("BoxShape3D_3pxkc")
+
+[node name="bunny2" parent="." unique_id=1573646185 instance=ExtResource("2_k3vav")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
+visible = false
+script = ExtResource("3_3pxkc")
 
 [node name="Character1" type="MeshInstance3D" parent="." unique_id=2121089248]
 transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, -2.927486, 0.46204412, 0)
@@ -107,10 +113,6 @@ skeleton = NodePath("../Character2")
 surface_material_override/0 = SubResource("ShaderMaterial_byxas")
 script = ExtResource("3_0jpfo")
 
-[node name="bunny4" parent="." unique_id=1766823376 instance=ExtResource("10_7p6yt")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
-visible = false
-
 [node name="Path3D" type="Path3D" parent="." unique_id=2051832293]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 3)
 curve = SubResource("Curve3D_7p6yt")
@@ -124,11 +126,12 @@ tilt_enabled = false
 [node name="CameraAnchor" type="Node3D" parent="Path3D/PathFollow3D" unique_id=1514255249 node_paths=PackedStringArray("cam")]
 script = ExtResource("1_23sq3")
 cam = NodePath("Camera3D")
-speed = 3.0
+speed = 2.0
 use_mouse_edges = false
 
 [node name="Camera3D" type="Camera3D" parent="Path3D/PathFollow3D/CameraAnchor" unique_id=227629944]
-transform = Transform3D(-0.0008727611, -0.5000155, 0.86612475, 0.0015116404, 0.8660529, 0.4999755, -1.0000914, 0.0017456042, -1.3588844e-08, 4.2141542, 1.9999999, 0)
-fov = 38.4
+transform = Transform3D(-4.3715453e-08, 0, 1.0000738, 0, 1.0000331, 0, -1.000093, 0, -4.3714614e-08, 2.894, 0.845, 0)
+fov = 50.680683
+near = 0.066
 
-[connection signal="input_event" from="bunny2/Area3D" to="bunny2" method="_on_area_3d_input_event"]
+[connection signal="input_event" from="bunny/Area3D" to="bunny2" method="_on_area_3d_input_event"]
