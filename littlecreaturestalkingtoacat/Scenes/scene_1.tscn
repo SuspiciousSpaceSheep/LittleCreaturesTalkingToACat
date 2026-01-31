@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cjilekwyx8ldx" path="res://Scenes/sheep.tscn" id="4_7p6yt"]
 [ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="6_7p6yt"]
 [ext_resource type="Texture2D" uid="uid://ca46wc3vb1a6p" path="res://Assets/waschmaschine_textur.png" id="7_nwpuv"]
+[ext_resource type="PackedScene" uid="uid://dbamvph4xasoo" path="res://Scenes/SecondaryCamera.tscn" id="8_secondary"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -79,8 +80,10 @@ environment = SubResource("Environment_tp648")
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="bunny" parent="." unique_id=826016510 instance=ExtResource("2_nwpuv")]
-transform = Transform3D(0.7466382, 0, -0.66523033, 0, 1, 0, 0.66523033, 0, 0.7466382, 1.947628, 0.46460566, -1.0686746)
+transform = Transform3D(0.7431448, 0, -0.6691306, 0, 1, 0, 0.6691306, 0, 0.7431448, 1.947628, 0.46460566, -1.0686746)
 script = ExtResource("3_3pxkc")
+camera_distance = 0.8
+camera_height = 0.3
 
 [node name="Area3D" type="Area3D" parent="bunny" unique_id=2060889078]
 
@@ -129,5 +132,9 @@ use_mouse_edges = false
 transform = Transform3D(-4.3715453e-08, 0, 1.0000738, 0, 1.0000331, 0, -1.000093, 0, -4.3714614e-08, 2.894, 0.845, 0)
 fov = 50.680683
 near = 0.066
+
+[node name="SecondaryCameraController" parent="." unique_id=18488685 instance=ExtResource("8_secondary")]
+look_at_offset = Vector3(0, 0, 0)
+use_blend_transition = false
 
 [connection signal="input_event" from="bunny/Area3D" to="bunny" method="_on_area_3d_input_event"]
