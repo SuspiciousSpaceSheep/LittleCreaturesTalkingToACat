@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://2r8veqbk57j5"]
+
+[ext_resource type="Texture2D" uid="uid://cy8cvh3lduv4a" path="res://icon.svg" id="1_3hn13"]
+[ext_resource type="Script" uid="uid://tpe5nlt0t581" path="res://Scripts/InventoryItem.gd" id="1_7y755"]
+
+[resource]
+script = ExtResource("1_7y755")
+variable_name = "Items.Lighter"
+item_icon = ExtResource("1_3hn13")
+item_name = "Lighter"
+item_description = "Used to kindle candles, camping fires and people."

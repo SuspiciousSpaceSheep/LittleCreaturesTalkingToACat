@@ -11,6 +11,9 @@
 [ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="6_7p6yt"]
 [ext_resource type="Texture2D" uid="uid://ca46wc3vb1a6p" path="res://Assets/waschmaschine_textur.png" id="7_nwpuv"]
 [ext_resource type="PackedScene" uid="uid://dbamvph4xasoo" path="res://Scenes/SecondaryCamera.tscn" id="8_secondary"]
+[ext_resource type="Script" uid="uid://dg52do0qd740v" path="res://Scripts/InventoryHUD.gd" id="9_inventory"]
+[ext_resource type="Script" uid="uid://tpe5nlt0t581" path="res://Scripts/InventoryItem.gd" id="13_sduc3"]
+[ext_resource type="Resource" uid="uid://2r8veqbk57j5" path="res://Items/item_lighter.tres" id="14_bvt53"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -142,6 +145,69 @@ near = 0.066
 [node name="SecondaryCameraController" parent="." unique_id=18488685 instance=ExtResource("8_secondary")]
 look_at_offset = Vector3(0, 0, 0)
 use_blend_transition = false
+
+[node name="InventoryHUD" type="Control" parent="." unique_id=1111046504]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("9_inventory")
+inventory_items = Array[ExtResource("13_sduc3")]([ExtResource("14_bvt53")])
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryHUD" unique_id=81668644]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = -200.0
+offset_bottom = 200.0
+grow_horizontal = 0
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryHUD/MarginContainer" unique_id=1921818698]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="TooltipPanel" type="PanelContainer" parent="InventoryHUD" unique_id=1419471352]
+layout_mode = 0
+offset_right = 250.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryHUD/TooltipPanel"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InventoryHUD/TooltipPanel/MarginContainer" unique_id=1358399124]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ItemName" type="Label" parent="InventoryHUD/TooltipPanel/MarginContainer/VBoxContainer" unique_id=1931448958]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Item Name"
+autowrap_mode = 3
+custom_minimum_size = Vector2(200, 0)
+
+[node name="ItemDescription" type="Label" parent="InventoryHUD/TooltipPanel/MarginContainer/VBoxContainer" unique_id=292399775]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Item description goes here."
+autowrap_mode = 3
+custom_minimum_size = Vector2(200, 0)
 
 [connection signal="input_event" from="bunny/Area3D" to="bunny" method="_on_area_3d_input_event"]
 [connection signal="mouse_entered" from="bunny/Area3D" to="bunny" method="_on_area_3d_mouse_entered"]
