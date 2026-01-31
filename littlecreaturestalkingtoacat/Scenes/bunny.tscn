@@ -1,5 +1,44 @@
 [gd_scene format=3 uid="uid://ddwkivm71on71"]
 
 [ext_resource type="PackedScene" uid="uid://t12xviy10swh" path="res://Assets/bunny.glb" id="1_mkvyw"]
+[ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="2_d72s3"]
+[ext_resource type="Texture2D" uid="uid://bkyvdegdm02ev" path="res://Assets/bunny_texture.png" id="3_yhi84"]
+[ext_resource type="Texture2D" uid="uid://cbmbiu4dj838g" path="res://shaders/rgb_curve.tres" id="4_k8l4s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nsufv"]
+render_priority = 0
+shader = ExtResource("2_d72s3")
+shader_parameter/color = ExtResource("3_yhi84")
+shader_parameter/curve = ExtResource("4_k8l4s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2088k"]
+render_priority = 0
+shader = ExtResource("2_d72s3")
+shader_parameter/color = ExtResource("3_yhi84")
+shader_parameter/curve = ExtResource("4_k8l4s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nmxph"]
+render_priority = 0
+shader = ExtResource("2_d72s3")
+shader_parameter/color = ExtResource("3_yhi84")
+shader_parameter/curve = ExtResource("4_k8l4s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y64bf"]
+render_priority = 0
+shader = ExtResource("2_d72s3")
+shader_parameter/color = ExtResource("3_yhi84")
+shader_parameter/curve = ExtResource("4_k8l4s")
 
 [node name="bunny2" unique_id=826016510 instance=ExtResource("1_mkvyw")]
+
+[node name="bunny" parent="." index="0" unique_id=674809936]
+surface_material_override/0 = SubResource("ShaderMaterial_nsufv")
+
+[node name="Cube_001" parent="bunny" index="0" unique_id=1953982169]
+surface_material_override/0 = SubResource("ShaderMaterial_2088k")
+
+[node name="Cube_002" parent="bunny" index="1" unique_id=738431781]
+surface_material_override/0 = SubResource("ShaderMaterial_nmxph")
+
+[node name="Cylinder" parent="bunny" index="2" unique_id=501716029]
+surface_material_override/0 = SubResource("ShaderMaterial_y64bf")

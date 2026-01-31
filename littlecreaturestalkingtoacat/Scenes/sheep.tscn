@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cjilekwyx8ldx"]
+
+[ext_resource type="PackedScene" uid="uid://o01pjfl60836" path="res://Assets/sheep.glb" id="1_m4nbu"]
+[ext_resource type="Texture2D" uid="uid://byocxc26gm54k" path="res://Assets/sheep_texture_smaller.png" id="3_dlixe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_35w1j"]
+albedo_texture = ExtResource("3_dlixe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okt0m"]
+albedo_texture = ExtResource("3_dlixe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dlixe"]
+albedo_texture = ExtResource("3_dlixe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nqg6p"]
+albedo_texture = ExtResource("3_dlixe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bvhs2"]
+albedo_texture = ExtResource("3_dlixe")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fsh87"]
+albedo_texture = ExtResource("3_dlixe")
+
+[node name="sheep" unique_id=425602908 instance=ExtResource("1_m4nbu")]
+
+[node name="Cube" parent="." index="0" unique_id=622572827]
+surface_material_override/0 = SubResource("StandardMaterial3D_35w1j")
+
+[node name="Cube_001" parent="." index="1" unique_id=1615500772]
+surface_material_override/0 = SubResource("StandardMaterial3D_okt0m")
+
+[node name="Cube_002" parent="." index="2" unique_id=84124533]
+surface_material_override/0 = SubResource("StandardMaterial3D_dlixe")
+
+[node name="Cube_007" parent="." index="3" unique_id=1486072995]
+surface_material_override/0 = SubResource("StandardMaterial3D_nqg6p")
+
+[node name="Cube_019" parent="." index="4" unique_id=1867430369]
+surface_material_override/0 = SubResource("StandardMaterial3D_bvhs2")
+
+[node name="Cube_004" parent="." index="5" unique_id=755354591]
+surface_material_override/0 = SubResource("StandardMaterial3D_fsh87")

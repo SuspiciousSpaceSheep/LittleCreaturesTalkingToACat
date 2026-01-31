@@ -3,11 +3,11 @@
 [ext_resource type="PackedScene" uid="uid://d34wkog26brxa" path="res://mainscene.tscn" id="1_3pxkc"]
 [ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_23sq3"]
 [ext_resource type="Shader" uid="uid://dbi1ku58eep01" path="res://shaders/outline_shader.gdshader" id="1_n8be1"]
-[ext_resource type="PackedScene" uid="uid://t12xviy10swh" path="res://Assets/bunny.glb" id="2_k3vav"]
 [ext_resource type="PackedScene" uid="uid://ddwkivm71on71" path="res://Scenes/bunny.tscn" id="2_nwpuv"]
 [ext_resource type="Material" uid="uid://cc3hvx0rba254" path="res://shaders/selectable_material.tres" id="2_tp648"]
 [ext_resource type="Script" uid="uid://5go11vklnp6q" path="res://Scripts/outline_hover.gd" id="3_0jpfo"]
 [ext_resource type="Script" uid="uid://ct2csg7lukix4" path="res://Assets/bunny.gd" id="3_3pxkc"]
+[ext_resource type="PackedScene" uid="uid://cjilekwyx8ldx" path="res://Scenes/sheep.tscn" id="4_7p6yt"]
 [ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="6_7p6yt"]
 [ext_resource type="Texture2D" uid="uid://ca46wc3vb1a6p" path="res://Assets/waschmaschine_textur.png" id="7_nwpuv"]
 
@@ -27,8 +27,7 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.5
 reflected_light_source = 2
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_3pxkc"]
-size = Vector3(1.7127686, 1.2629395, 1.6845703)
+[sub_resource type="BoxShape3D" id="BoxShape3D_7p6yt"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_3sd7o"]
 
@@ -79,19 +78,18 @@ environment = SubResource("Environment_tp648")
 [node name="mainscene" parent="." unique_id=2037960735 instance=ExtResource("1_3pxkc")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 0)
 
-[node name="bunny4" parent="." unique_id=826016510 instance=ExtResource("2_nwpuv")]
+[node name="bunny" parent="." unique_id=826016510 instance=ExtResource("2_nwpuv")]
 transform = Transform3D(0.7466382, 0, -0.66523033, 0, 1, 0, 0.66523033, 0, 0.7466382, 1.947628, 0.46460566, -1.0686746)
-
-[node name="Area3D" type="Area3D" parent="bunny4" unique_id=162488703]
-transform = Transform3D(0.12639377, 0, -0.14186125, 0, 0.19, 0, 0.14186125, 0, 0.12639377, 0.030150056, 0.12916043, 0.0668211)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="bunny4/Area3D" unique_id=1497372477]
-transform = Transform3D(1.0000001, 0, -3.5527137e-15, 0, 1.0000001, 0, 3.5527137e-15, 0, 1.0000001, 0, 0, 0)
-shape = SubResource("BoxShape3D_3pxkc")
-
-[node name="bunny2" parent="." unique_id=1570814070 instance=ExtResource("2_k3vav")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0.4196031, -1.171391)
 script = ExtResource("3_3pxkc")
+
+[node name="Area3D" type="Area3D" parent="bunny" unique_id=2060889078]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="bunny/Area3D" unique_id=556203276]
+transform = Transform3D(0.26, 0, 0, 0, 0.26, 0, 0, 0, 0.26, 0, 0.105, 0)
+shape = SubResource("BoxShape3D_7p6yt")
+
+[node name="sheep" parent="." unique_id=425602908 instance=ExtResource("4_7p6yt")]
+transform = Transform3D(0.3901687, 0, 0.9207434, 0, 1, 0, -0.9207434, 0, 0.3901687, -4.6098566, 0, -1.3829682)
 
 [node name="Character1" type="MeshInstance3D" parent="." unique_id=2121089248]
 transform = Transform3D(0.455, 0, 0, 0, 0.455, 0, 0, 0, 0.455, -2.927486, 0.46204412, 0)
@@ -132,4 +130,4 @@ transform = Transform3D(-4.3715453e-08, 0, 1.0000738, 0, 1.0000331, 0, -1.000093
 fov = 50.680683
 near = 0.066
 
-[connection signal="input_event" from="bunny4/Area3D" to="bunny2" method="_on_area_3d_input_event"]
+[connection signal="input_event" from="bunny/Area3D" to="bunny" method="_on_area_3d_input_event"]
