@@ -4,27 +4,56 @@
 [ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="2_d72s3"]
 [ext_resource type="Texture2D" uid="uid://bkyvdegdm02ev" path="res://Assets/bunny_texture.png" id="3_yhi84"]
 [ext_resource type="Texture2D" uid="uid://cbmbiu4dj838g" path="res://shaders/rgb_curve.tres" id="4_k8l4s"]
+[ext_resource type="Shader" uid="uid://dbi1ku58eep01" path="res://shaders/outline_shader.gdshader" id="5_outline"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_outline_1"]
+render_priority = 0
+shader = ExtResource("5_outline")
+shader_parameter/outline_color = Color(0, 1, 0, 0)
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nsufv"]
 render_priority = 0
+next_pass = SubResource("ShaderMaterial_outline_1")
 shader = ExtResource("2_d72s3")
 shader_parameter/color = ExtResource("3_yhi84")
 shader_parameter/curve = ExtResource("4_k8l4s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_outline_2"]
+render_priority = 0
+shader = ExtResource("5_outline")
+shader_parameter/outline_color = Color(0, 1, 0, 0)
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2088k"]
 render_priority = 0
+next_pass = SubResource("ShaderMaterial_outline_2")
 shader = ExtResource("2_d72s3")
 shader_parameter/color = ExtResource("3_yhi84")
 shader_parameter/curve = ExtResource("4_k8l4s")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_outline_3"]
+render_priority = 0
+shader = ExtResource("5_outline")
+shader_parameter/outline_color = Color(0, 1, 0, 0)
+shader_parameter/outline_width = 1.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmxph"]
 render_priority = 0
+next_pass = SubResource("ShaderMaterial_outline_3")
 shader = ExtResource("2_d72s3")
 shader_parameter/color = ExtResource("3_yhi84")
 shader_parameter/curve = ExtResource("4_k8l4s")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_outline_4"]
+render_priority = 0
+shader = ExtResource("5_outline")
+shader_parameter/outline_color = Color(0, 1, 0, 0)
+shader_parameter/outline_width = 1.0
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_y64bf"]
 render_priority = 0
+next_pass = SubResource("ShaderMaterial_outline_4")
 shader = ExtResource("2_d72s3")
 shader_parameter/color = ExtResource("3_yhi84")
 shader_parameter/curve = ExtResource("4_k8l4s")

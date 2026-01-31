@@ -14,10 +14,10 @@ func _ready() -> void:
 #	set_hightlighted(false);
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 	
-func set_hightlighted(new_is_highlighted):
+func set_hightlighted(_new_is_highlighted):
 	pass
 #	is_hightlighted = new_is_highlighted
 #	if (new_is_highlighted):

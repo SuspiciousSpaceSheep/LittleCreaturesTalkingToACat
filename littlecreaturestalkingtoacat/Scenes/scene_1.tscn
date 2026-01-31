@@ -88,6 +88,8 @@ priority_list = Dictionary[String, String]({
 "Items.Lighter": "bunny_lighter"
 })
 has_interacted_var = "FirstTimeInteraction.Bunny"
+outline_color = Color(0.45214325, 1.0285332, 0.7350013, 1)
+outline_width = 5.0
 
 [node name="Area3D" type="Area3D" parent="bunny" unique_id=2060889078]
 
@@ -142,3 +144,5 @@ look_at_offset = Vector3(0, 0, 0)
 use_blend_transition = false
 
 [connection signal="input_event" from="bunny/Area3D" to="bunny" method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="bunny/Area3D" to="bunny" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="bunny/Area3D" to="bunny" method="_on_area_3d_mouse_exited"]
