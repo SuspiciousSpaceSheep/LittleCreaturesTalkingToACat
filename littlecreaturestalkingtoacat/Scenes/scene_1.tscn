@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ddwkivm71on71" path="res://Scenes/bunny.tscn" id="2_nwpuv"]
 [ext_resource type="Material" uid="uid://cc3hvx0rba254" path="res://shaders/selectable_material.tres" id="2_tp648"]
 [ext_resource type="Script" uid="uid://5go11vklnp6q" path="res://Scripts/outline_hover.gd" id="3_0jpfo"]
-[ext_resource type="Script" uid="uid://ct2csg7lukix4" path="res://Assets/bunny.gd" id="3_3pxkc"]
+[ext_resource type="Script" uid="uid://q5dfhc2hlthx" path="res://Scripts/Interactable.gd" id="3_nwpuv"]
 [ext_resource type="PackedScene" uid="uid://cjilekwyx8ldx" path="res://Scenes/sheep.tscn" id="4_7p6yt"]
 [ext_resource type="Shader" uid="uid://c7nyetu1y2i1u" path="res://shaders/lena_shader.gdshader" id="6_7p6yt"]
 [ext_resource type="Texture2D" uid="uid://ca46wc3vb1a6p" path="res://Assets/waschmaschine_textur.png" id="7_nwpuv"]
@@ -81,9 +81,13 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0
 
 [node name="bunny" parent="." unique_id=826016510 instance=ExtResource("2_nwpuv")]
 transform = Transform3D(0.7431448, 0, -0.6691306, 0, 1, 0, 0.6691306, 0, 0.7431448, 1.947628, 0.46460566, -1.0686746)
-script = ExtResource("3_3pxkc")
-camera_distance = 0.8
-camera_height = 0.3
+script = ExtResource("3_nwpuv")
+first_time_dialogue_id = "bunny_first_time"
+default_dialogue_id = "bunny_default"
+priority_list = Dictionary[String, String]({
+"Items.Lighter": "bunny_lighter"
+})
+has_interacted_var = "FirstTimeInteraction.Bunny"
 
 [node name="Area3D" type="Area3D" parent="bunny" unique_id=2060889078]
 

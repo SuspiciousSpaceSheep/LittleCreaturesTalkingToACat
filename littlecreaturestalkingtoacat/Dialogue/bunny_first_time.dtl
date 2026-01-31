@@ -1,8 +1,12 @@
 Bunny: Hiii \:3
 Bunny: Lena coded this hehe
-- Ohhhhhh
-- Wow
+- Gimme a Lighter!
+	set {Items.Lighter} = true
+	You got a lighter!
+	[end_timeline]
+- WOW!
 Bunny: i wonder what happens if i put a  long text in here let's see
 join Cat left [animation="Fade In Up" length="0.0"]
 Cat: Meow \:)
 Cat: I'm the player character
+[end_timeline]
