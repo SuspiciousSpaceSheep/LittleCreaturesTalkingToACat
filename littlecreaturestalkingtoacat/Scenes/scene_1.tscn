@@ -14,6 +14,7 @@
 [ext_resource type="Script" uid="uid://dg52do0qd740v" path="res://Scripts/InventoryHUD.gd" id="9_inventory"]
 [ext_resource type="Script" uid="uid://tpe5nlt0t581" path="res://Scripts/InventoryItem.gd" id="13_sduc3"]
 [ext_resource type="Resource" uid="uid://2r8veqbk57j5" path="res://Items/item_lighter.tres" id="14_bvt53"]
+[ext_resource type="PackedScene" path="res://Scenes/PauseMenu.tscn" id="15_pausemenu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -183,7 +184,7 @@ layout_mode = 0
 offset_right = 250.0
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="InventoryHUD/TooltipPanel"]
+[node name="MarginContainer" type="MarginContainer" parent="InventoryHUD/TooltipPanel" unique_id=1807841479]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 12
@@ -196,18 +197,20 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="ItemName" type="Label" parent="InventoryHUD/TooltipPanel/MarginContainer/VBoxContainer" unique_id=1931448958]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "Item Name"
 autowrap_mode = 3
-custom_minimum_size = Vector2(200, 0)
 
 [node name="ItemDescription" type="Label" parent="InventoryHUD/TooltipPanel/MarginContainer/VBoxContainer" unique_id=292399775]
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 12
 text = "Item description goes here."
 autowrap_mode = 3
-custom_minimum_size = Vector2(200, 0)
+
+[node name="PauseMenu" parent="." unique_id=1603289264 instance=ExtResource("15_pausemenu")]
 
 [connection signal="input_event" from="bunny/Area3D" to="bunny" method="_on_area_3d_input_event"]
 [connection signal="mouse_entered" from="bunny/Area3D" to="bunny" method="_on_area_3d_mouse_entered"]

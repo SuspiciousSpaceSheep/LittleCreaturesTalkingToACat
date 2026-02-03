@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://smo12a8vta5g"]
+
+[ext_resource type="Script" uid="uid://ci418q008noiu" path="res://Scripts/MainMenu.gd" id="1_mainmenu"]
+
+[node name="MainMenu" type="Control" unique_id=1993939392]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mainmenu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1932611490]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -400.0
+offset_right = 300.0
+offset_bottom = 400.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.886275, 1, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorRect" unique_id=1364448949]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/CenterContainer" unique_id=495903165]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=397312450]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "Little Creatures
+Talking to a Cat"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1792849684]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1514063699]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "New Game"
+
+[node name="LoadGameButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=986143403]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 24
+text = "Load Game"
+
+[node name="OptionsButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1674440376]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 24
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=321872629]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Quit Game"
