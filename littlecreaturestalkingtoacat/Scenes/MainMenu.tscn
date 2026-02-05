@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://smo12a8vta5g"]
 
 [ext_resource type="Script" uid="uid://ci418q008noiu" path="res://Scripts/MainMenu.gd" id="1_mainmenu"]
+[ext_resource type="PackedScene" uid="uid://b5xk7mq2lcy3n" path="res://Scenes/SaveLoadMenu.tscn" id="2_saveloadmenu"]
 
 [node name="MainMenu" type="Control" unique_id=1993939392]
 layout_mode = 3
@@ -50,6 +51,13 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(0, 40)
 layout_mode = 2
 
+[node name="ContinueButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 60)
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0.6, 0.6, 0.6, 1)
+theme_override_font_sizes/font_size = 24
+text = "Continue"
+
 [node name="NewGameButton" type="Button" parent="ColorRect/CenterContainer/VBoxContainer" unique_id=1514063699]
 custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
@@ -75,3 +83,5 @@ custom_minimum_size = Vector2(300, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Quit Game"
+
+[node name="SaveLoadMenu" parent="." instance=ExtResource("2_saveloadmenu")]
