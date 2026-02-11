@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://rvg0fjeqhw8j"]
+
+[ext_resource type="PackedScene" uid="uid://dblw64giispgl" path="res://Assets/Creature Models/fish.glb" id="1_c4ibo"]
+[ext_resource type="Texture2D" uid="uid://bcotn6heineju" path="res://Assets/Creature Models/Creature Textures/fish_texture_small.png" id="2_4fqy1"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urn1o"]
+albedo_texture = ExtResource("2_4fqy1")
+
+[node name="fish" unique_id=1353934809 instance=ExtResource("1_c4ibo")]
+
+[node name="Plane_001" parent="." index="0" unique_id=135224097]
+surface_material_override/0 = SubResource("StandardMaterial3D_urn1o")
+
+[node name="Plane_002" parent="." index="1" unique_id=661374329]
+surface_material_override/0 = SubResource("StandardMaterial3D_urn1o")
+
+[node name="Plane" parent="." index="2" unique_id=1200506207]
+surface_material_override/0 = SubResource("StandardMaterial3D_urn1o")
+
+[node name="Cube_001" parent="." index="3" unique_id=159372489]
+surface_material_override/0 = SubResource("StandardMaterial3D_urn1o")
+
+[node name="Cube_002" parent="." index="4" unique_id=1894571049]
+surface_material_override/0 = SubResource("StandardMaterial3D_urn1o")
+
+[node name="Cube_003" parent="." index="5" unique_id=275309141]
+surface_material_override/0 = SubResource("StandardMaterial3D_urn1o")

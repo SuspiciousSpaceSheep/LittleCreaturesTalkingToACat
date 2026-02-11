@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://de126yvvjk0h3"]
+
+[ext_resource type="PackedScene" uid="uid://cao30untqdyb4" path="res://Assets/Creature Models/snummoner.glb" id="1_hfum8"]
+[ext_resource type="Texture2D" uid="uid://ciw7v4sss610v" path="res://Assets/Creature Models/Creature Textures/snail_texture_small.png" id="2_37ecr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dk1g3"]
+albedo_texture = ExtResource("2_37ecr")
+
+[node name="snummoner" unique_id=540120582 instance=ExtResource("1_hfum8")]
+
+[node name="Roundcube_002" parent="." index="0" unique_id=1284417410]
+surface_material_override/0 = SubResource("StandardMaterial3D_dk1g3")
+
+[node name="Cylinder_001" parent="." index="1" unique_id=142623607]
+surface_material_override/0 = SubResource("StandardMaterial3D_dk1g3")
+
+[node name="Cylinder_002" parent="." index="2" unique_id=2021979802]
+surface_material_override/0 = SubResource("StandardMaterial3D_dk1g3")
+
+[node name="Cylinder_003" parent="." index="3" unique_id=750688489]
+surface_material_override/0 = SubResource("StandardMaterial3D_dk1g3")
+
+[node name="Cube" parent="." index="4" unique_id=787632342]
+surface_material_override/0 = SubResource("StandardMaterial3D_dk1g3")

@@ -2,24 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://d34wkog26brxa" path="res://mainscene.tscn" id="1_3pxkc"]
 [ext_resource type="Script" uid="uid://dp48773kikrah" path="res://Scripts/CameraMovement3D.gd" id="1_23sq3"]
-[ext_resource type="PackedScene" uid="uid://ddwkivm71on71" path="res://Scenes/bunny.tscn" id="2_nwpuv"]
+[ext_resource type="PackedScene" uid="uid://ddwkivm71on71" path="res://Scenes/Creatures/bunny.tscn" id="2_nwpuv"]
 [ext_resource type="Script" uid="uid://q5dfhc2hlthx" path="res://Scripts/Interactable.gd" id="3_nwpuv"]
-[ext_resource type="PackedScene" uid="uid://cjilekwyx8ldx" path="res://Scenes/sheep.tscn" id="4_7p6yt"]
-[ext_resource type="PackedScene" uid="uid://cjdrpyyoqqbnf" path="res://Scenes/crow.tscn" id="5_nwpuv"]
-[ext_resource type="PackedScene" uid="uid://deqj088ri0mk2" path="res://Scenes/duck_brown.tscn" id="6_sduc3"]
-[ext_resource type="PackedScene" uid="uid://bv8n07dfq52c7" path="res://Scenes/duck_green.tscn" id="7_bvt53"]
+[ext_resource type="PackedScene" uid="uid://cjilekwyx8ldx" path="res://Scenes/Creatures/sheep.tscn" id="4_7p6yt"]
+[ext_resource type="PackedScene" uid="uid://cjdrpyyoqqbnf" path="res://Scenes/Creatures/crow.tscn" id="5_nwpuv"]
+[ext_resource type="PackedScene" uid="uid://deqj088ri0mk2" path="res://Scenes/Creatures/duck_brown.tscn" id="6_sduc3"]
+[ext_resource type="PackedScene" uid="uid://bv8n07dfq52c7" path="res://Scenes/Creatures/duck_green.tscn" id="7_bvt53"]
 [ext_resource type="PackedScene" uid="uid://dbamvph4xasoo" path="res://Scenes/SecondaryCamera.tscn" id="8_secondary"]
-[ext_resource type="PackedScene" uid="uid://blgsj27jk48q7" path="res://Scenes/duck_white.tscn" id="8_vlddq"]
-[ext_resource type="PackedScene" uid="uid://btr3p570xsmg" path="res://Scenes/demon.tscn" id="9_a00a6"]
+[ext_resource type="PackedScene" uid="uid://blgsj27jk48q7" path="res://Scenes/Creatures/duck_white.tscn" id="8_vlddq"]
+[ext_resource type="PackedScene" uid="uid://btr3p570xsmg" path="res://Scenes/Creatures/demon.tscn" id="9_a00a6"]
 [ext_resource type="Script" uid="uid://dg52do0qd740v" path="res://Scripts/InventoryHUD.gd" id="9_inventory"]
-[ext_resource type="PackedScene" uid="uid://rvg0fjeqhw8j" path="res://Scenes/fish.tscn" id="10_otufq"]
-[ext_resource type="PackedScene" uid="uid://co1fnn0gffpqr" path="res://Scenes/frog.tscn" id="11_i2k7v"]
-[ext_resource type="PackedScene" uid="uid://dxe6eroww5dfm" path="res://Scenes/littleguyinthevendingmachine.tscn" id="12_tu0fs"]
+[ext_resource type="PackedScene" uid="uid://rvg0fjeqhw8j" path="res://Scenes/Creatures/fish.tscn" id="10_otufq"]
+[ext_resource type="PackedScene" uid="uid://co1fnn0gffpqr" path="res://Scenes/Creatures/frog.tscn" id="11_i2k7v"]
+[ext_resource type="PackedScene" uid="uid://dxe6eroww5dfm" path="res://Scenes/Creatures/littleguyinthevendingmachine.tscn" id="12_tu0fs"]
 [ext_resource type="Script" uid="uid://tpe5nlt0t581" path="res://Scripts/InventoryItem.gd" id="13_sduc3"]
-[ext_resource type="PackedScene" uid="uid://oohx3yes8irp" path="res://Scenes/racoon.tscn" id="13_tlq8e"]
+[ext_resource type="PackedScene" uid="uid://oohx3yes8irp" path="res://Scenes/Creatures/racoon.tscn" id="13_tlq8e"]
 [ext_resource type="Resource" uid="uid://2r8veqbk57j5" path="res://Items/item_lighter.tres" id="14_bvt53"]
-[ext_resource type="PackedScene" uid="uid://cggj4mrn0bhf7" path="res://Scenes/shrimp.tscn" id="14_jgapd"]
-[ext_resource type="PackedScene" uid="uid://de126yvvjk0h3" path="res://Scenes/snummoner.tscn" id="15_otufq"]
+[ext_resource type="PackedScene" uid="uid://cggj4mrn0bhf7" path="res://Scenes/Creatures/shrimp.tscn" id="14_jgapd"]
+[ext_resource type="PackedScene" uid="uid://de126yvvjk0h3" path="res://Scenes/Creatures/snummoner.tscn" id="15_otufq"]
 [ext_resource type="PackedScene" uid="uid://ctj3s4rlf8axh" path="res://Scenes/PauseMenu.tscn" id="15_pausemenu"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
@@ -90,10 +90,10 @@ transform = Transform3D(-0.7129935, 0, -0.7011706, 0, 1, 0, 0.7011706, 0, -0.712
 [node name="duck_brown" parent="." unique_id=2098267993 instance=ExtResource("6_sduc3")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -2.304099, 0.26466972, -1.4563649)
 
-[node name="duck_green" parent="." unique_id=976948952 instance=ExtResource("7_bvt53")]
+[node name="duck_green" parent="." unique_id=1506047605 instance=ExtResource("7_bvt53")]
 transform = Transform3D(0.62845194, -2.1090298e-10, 0.77784836, 3.3720185e-10, 1, -1.3001021e-12, -0.77784836, 2.6310965e-10, 0.62845194, -2.6831336, 0, -1.0940851)
 
-[node name="duck_white" parent="." unique_id=478977683 instance=ExtResource("8_vlddq")]
+[node name="duck_white" parent="." unique_id=366866722 instance=ExtResource("8_vlddq")]
 transform = Transform3D(0.6591227, 0, 0.7520354, 0, 1, 0, -0.7520354, 0, 0.6591227, -2.3215241, 0, -1.088588)
 
 [node name="demon" parent="." unique_id=710124751 instance=ExtResource("9_a00a6")]

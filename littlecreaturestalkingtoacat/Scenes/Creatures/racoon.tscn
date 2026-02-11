@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://oohx3yes8irp"]
+
+[ext_resource type="PackedScene" uid="uid://cv66htx11pquw" path="res://Assets/Creature Models/racoon.glb" id="1_rxqbo"]
+[ext_resource type="Texture2D" uid="uid://bo0g1g7s3syjd" path="res://Assets/Creature Models/Creature Textures/racoon_texture_small.png" id="2_odxir"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pe4ui"]
+albedo_texture = ExtResource("2_odxir")
+
+[node name="racoon" unique_id=1247241840 instance=ExtResource("1_rxqbo")]
+
+[node name="body" parent="." index="0" unique_id=117900798]
+surface_material_override/0 = SubResource("StandardMaterial3D_pe4ui")
+
+[node name="eye" parent="." index="1" unique_id=1030642386]
+surface_material_override/0 = SubResource("StandardMaterial3D_pe4ui")
+
+[node name="tail" parent="." index="2" unique_id=833601029]
+surface_material_override/0 = SubResource("StandardMaterial3D_pe4ui")
