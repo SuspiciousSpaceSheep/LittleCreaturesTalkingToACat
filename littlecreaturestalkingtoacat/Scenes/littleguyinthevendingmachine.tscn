@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dxe6eroww5dfm"]
+
+[ext_resource type="PackedScene" uid="uid://dr3027puei1rg" path="res://Assets/littleguyinthevendingmachine.glb" id="1_jf0kw"]
+[ext_resource type="Texture2D" uid="uid://vh5u6hr4tty" path="res://Assets/little_guy_texture_small.png" id="2_fjcom"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ymrp6"]
+albedo_texture = ExtResource("2_fjcom")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rtlk1"]
+albedo_texture = ExtResource("2_fjcom")
+
+[node name="littleguyinthevendingmachine" unique_id=824898500 instance=ExtResource("1_jf0kw")]
+
+[node name="Cube" parent="." index="0" unique_id=1082362305]
+surface_material_override/0 = SubResource("StandardMaterial3D_ymrp6")
+
+[node name="Cube_001" parent="." index="1" unique_id=1624655312]
+surface_material_override/0 = SubResource("StandardMaterial3D_rtlk1")
+
+[node name="Cube_002" parent="." index="2" unique_id=731842124]
+surface_material_override/0 = SubResource("StandardMaterial3D_ymrp6")
+
+[node name="Cube_003" parent="." index="3" unique_id=1239958336]
+surface_material_override/0 = SubResource("StandardMaterial3D_ymrp6")
+
+[node name="Cube_004" parent="." index="4" unique_id=587261576]
+surface_material_override/0 = SubResource("StandardMaterial3D_ymrp6")

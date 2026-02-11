@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://co1fnn0gffpqr"]
+
+[ext_resource type="PackedScene" uid="uid://kjhhs52uay1b" path="res://Assets/frog.glb" id="1_4ygq6"]
+[ext_resource type="Texture2D" uid="uid://ck3t3dfs6bv8x" path="res://Assets/frog_texture_small.png" id="2_c3muq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xvrdk"]
+albedo_texture = ExtResource("2_c3muq")
+
+[node name="frog" unique_id=71454787 instance=ExtResource("1_4ygq6")]
+
+[node name="Cube_003" parent="." index="0" unique_id=1696065175]
+surface_material_override/0 = SubResource("StandardMaterial3D_xvrdk")
+
+[node name="Cube_004" parent="." index="1" unique_id=517813781]
+surface_material_override/0 = SubResource("StandardMaterial3D_xvrdk")
+
+[node name="Cube_006" parent="." index="2" unique_id=911577279]
+surface_material_override/0 = SubResource("StandardMaterial3D_xvrdk")
+
+[node name="Cube_007" parent="." index="3" unique_id=304236810]
+surface_material_override/0 = SubResource("StandardMaterial3D_xvrdk")

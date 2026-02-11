@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bv8n07dfq52c7"]
+
+[ext_resource type="PackedScene" uid="uid://cnkacysj0mne3" path="res://Assets/duck.glb" id="1_ls0xu"]
+[ext_resource type="Texture2D" uid="uid://bjs0ub2u3u2k6" path="res://Assets/duck_green_texture_small.png" id="2_g70mv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egpud"]
+albedo_texture = ExtResource("2_g70mv")
+
+[node name="duck" unique_id=2098267993 instance=ExtResource("1_ls0xu")]
+
+[node name="Cube" parent="." index="0" unique_id=1831551962]
+surface_material_override/0 = SubResource("StandardMaterial3D_egpud")
+
+[node name="Cube_001" parent="." index="1" unique_id=328899242]
+surface_material_override/0 = SubResource("StandardMaterial3D_egpud")
+
+[node name="Cylinder" parent="." index="2" unique_id=174943450]
+surface_material_override/0 = SubResource("StandardMaterial3D_egpud")
