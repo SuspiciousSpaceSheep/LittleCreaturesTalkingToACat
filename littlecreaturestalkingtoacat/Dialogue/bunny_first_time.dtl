@@ -1,12 +1,254 @@
-Bunny: Hiii \:3
-Bunny: Lena coded this hehe
-- Gimme a Lighter!
-	set {Items.Lighter} = true
-	You got a lighter!
+Bunny: Shhhhh!
+- sorry!
+	Bunny: It‘s oki
+	Bunny: just waiiiit
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: ...
+	leave Cat [animation="Fade In Down" length="0.0"]
+	Bunny: ...
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: ...
+	leave Cat [animation="Fade In Down" length="0.0"]
+- WHAT?
+	Bunny: Aaaaaaaah
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: Aaaaaaah!
+	leave Cat [animation="Fade In Down" length="0.0"]
+Bunny: Aw crap now it‘s gone
+- What?
+- I‘m sorry?
+Bunny: My thought
+label pondering
+Bunny: I was pondering you know
+- Pondering? | [if {Bunny_pondering_selected} == false] [else="hide"]
+	Bunny: Contemplating you know
+	Bunny: thinking and stuff
+	set {Bunny_pondering_selected} = true
+	jump pondering
+- What about?
+- Excuse me do you have a coin? | [if {Bunny_excuseme_selected} == false] [else="hide"]
+	Bunny: I reject money for ethical reasons
+	Bunny: also it distracts you from the pondering
+	set {Bunny_excuseme_selected} = true
+	jump pondering
+Bunny: Hobbys mainly
+Bunny: You see i have three of them
+Bunny: Working out, sewing and arson
+- Hold on what?
+	Bunny: Huh?
+	Bunny: I said working out
+	Bunny: sewing
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: … and arson??
+	leave Cat [animation="Fade In Down" length="0.0"]
+	Bunny: Yeah
+	Bunny: is something wrong with that?
+- One of those is not like the others
+	Bunny: Yeah working out is more of a physical hobby
+	Bunny: but it‘s good to have some variety
+	- Sure thing, but arson?
+		Bunny: Yeah
+		Bunny: is something wrong with that?
+	- ARSON!
+		Bunny: Whoa, what is it?
+join Cat left [animation="Fade In Down" length="0.0"]
+Cat: Well isn‘t that like …
+Cat: ~illegal?~
+leave Cat [animation="Fade In Down" length="0.0"]
+label fun
+Bunny: That‘s half the fun!
+- You're a real criminal then?
+- No?? | [if {Bunny_no_selected} == false] [else="hide"]
+	Bunny: Yes!
+	set {Bunny_no_selected} = true
+	jump fun
+Bunny: Well if you insist
+Bunny: I also got a parking ticket once if that counts
+Bunny: it was while I was setting fire to the police station
+Bunny: real bad luck
+- I should report you to the police
+	Bunny: Aww
+	Bunny: they already know me tho
+	Bunny: so no need
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: Thats not what i meant …
+	leave Cat [animation="Fade In Down" length="0.0"]
+	Bunny: Anyways
+	Bunny: it‘s not my only hobby you know
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: Yes thanks for that. So you work out?
+	leave Cat [animation="Fade In Down" length="0.0"]
+- I‘m scared now
+	Bunny: Aww don‘t be
+	Bunny: the police station was empty of course
+	Bunny: they were all investigating the fire at the hardware store
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: ...
+	Cat: Ahh … let‘s talk about working out instead?
+	leave Cat [animation="Fade In Down" length="0.0"]
+- Wow that‘s so cool!
+	Bunny: \:3
+	Bunny: hehe
+	Bunny: you‘re too kind
+	Bunny: I‘m sure you could do it too!
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: You think so?
+	leave Cat [animation="Fade In Down" length="0.0"]
+	Bunny: yeah all you need are matches and cool sunglasses
+	Bunny: but anyways i also have other hobbys you know
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: You mean boring ones like working out?
+	leave Cat [animation="Fade In Down" length="0.0"]
+Bunny: Working out is great!
+Bunny: I mean it‘s not that fun honestly
+Bunny: but it helps a great deal when you are running
+Bunny: away from the crime scene
+- Somehow I‘m not surprised
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: And what about sewing?
+	leave Cat [animation="Fade In Down" length="0.0"]
+	Bunny: What do you mean
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: There‘s got to be something
+	leave Cat [animation="Fade In Down" length="0.0"]
+	Bunny: I just make little costumes
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: Go on
+	leave Cat [animation="Fade In Down" length="0.0"]
+- Ahh
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: At least you are also sewing?
+	leave Cat [animation="Fade In Down" length="0.0"]
+	Bunny: I just make little costumes
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: Now that‘s cute!
+	leave Cat [animation="Fade In Down" length="0.0"]
+Bunny: Well they are good to disguise myself
+Bunny: in case they do catch me
+Bunny: after I set a fire
+- I knew it!
+- You truly are committed
+Bunny: Yeah
+Bunny: It‘s hard sometimes tho
+Bunny: I‘d like to consider myself a well rounded person
+Bunny: but sometimes i think too much of my life centers around arson
+Bunny: …
+Bunny: Ah there it is again!
+join Cat left [animation="Fade In Down" length="0.0"]
+Cat: What?
+leave Cat [animation="Fade Out Up" length="0.0"]
+Bunny: The thought
+Bunny: I was thinking about getting a fourth hobby you know
+Bunny: Something a bit more socially acceptable maybe
+Bunny: …
+label tax evasion
+Bunny: How do you feel about tax evasion?
+- How is that more socially acceptable? | [if {Bunny_acceptable_selected} == false] [else="hide"]
+	Bunny: I don‘t know
+	Bunny: But it must be
+	Bunny: billionaires do it all the time
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: Fair point
+	Cat: but still
+	leave Cat [animation="Fade Out Up" length="0.0"]
+	set {Bunny_acceptable_selected} = true
+	jump tax evasion
+- I‘m not so sure
+Bunny: Me neiter
+Bunny: it seems like more of a passive hobby
+Bunny: I need something I can be really passionate about
+Bunny: can you think of a good hobby to try?
+- You could join the voluntary fire brigade
+	Bunny: ah fire i like that
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: You‘d have to put them out though
+	leave Cat [animation="Bounce Out" length="0.0"]
+	Bunny: You mean
+	Bunny: extinguishing them??
+	Bunny: No thats too sad
+- How about scuba diving?
+	Bunny: thats like a lot of water isn‘t it
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: You wanted something different from fire right
+	leave Cat [animation="Bounce Out" length="0.0"]
+	Bunny: but thats way too scary
+Bunny: It‘s got to be something different
+join Cat left [animation="Fade In Down" length="0.0"]
+Cat: going to the cinema?
+leave Cat [animation="Bounce Out" length="0.0"]
+Bunny: I got banned there
+Bunny: after I set the screen on fire
+join Cat left [animation="Fade In Down" length="0.0"]
+Cat: baking?
+leave Cat [animation="Bounce Out" length="0.0"]
+Bunny: thats too dangerous
+Bunny: I always eat the whole dough raw
+Bunny: and then i feel sick
+join Cat left [animation="Fade In Down" length="0.0"]
+Cat: reading?
+leave Cat [animation="Bounce Out" length="0.0"]
+Bunny: …
+Bunny: hm reading
+Bunny: I like the sound of it
+Bunny: immersing myself into a book
+Bunny: gaining knowledge
+Bunny: I could try that
+Bunny: but how do i get a book?
+label ponder again
+Bunny: I‘ll need to ponder again
+- From the bookstore? | [if {Bunny_bookstore_selected} == false] [else="hide"]
+	Bunny: I got banned there
+	Bunny: after I set–
+	- you set the books on fire?
+	- ok ok I get it
+	Bunny: Nooo not the books!
+	Bunny: I set the curtains on fire
+	Bunny: I‘d never burn a book
+	Bunny: I‘m a bunny not a facist
+	set {Bunny_bookstore_selected} = true
+	jump ponder again
+- I could get a book for you
+	Bunny: Aww really?
+	Bunny: That would be so cute of you
+	Bunny: I can give you a matchbox in return
+	Bunny: I have way too many of those
+	join Cat left [animation="Fade In Down" length="0.0"]
+	Cat: I‘ll get back to you
+	leave Cat [animation="Fade Out Up" length="0.0"]
+	Bunny: <3
 	[end_timeline]
-- WOW!
-Bunny: i wonder what happens if i put a  long text in here let's see
-join Cat left [animation="Fade In Up" length="0.0"]
-Cat: Meow \:)
-Cat: I'm the player character
-[end_timeline]
+- I have a book you could read | [if {Items.Book} == true] [else="hide"]
+	Bunny: Aww you‘re the best
+	Bunny: What‘s it about?
+	join Cat left [animation="Bounce In" length="0.0"]
+	Cat: I don‘t know yet
+	Cat: It‘s a surprise book!
+	leave Cat [animation="Bounce Out" length="0.0"]
+	Bunny: Ohh that’s so exciting!
+	join Cat left [animation="Bounce In" length="0.0"]
+	Cat: Shall we open it together?
+	leave Cat [animation="Bounce Out" length="0.0"]
+	Bunny: Yes!
+	set {Items.Book} = false
+	join Cat left [animation="Bounce In" length="0.0"]
+	Cat: Oh look
+	leave Cat [animation="Bounce Out" length="0.0"]
+	Bunny: „Let‘s raise a family!
+	Bunny: A complete beginners guide to necromancy
+	Bunny: A compelling introduction into the darkest of dark arts“
+	join Cat left [animation="Bounce In" length="0.0"]
+	Cat: Do … you like it?
+	leave Cat [animation="Bounce Out" length="0.0"]
+	Bunny: I love it!
+	Bunny: Necromancy sound like a nice thing
+	Bunny: even if the whole reading business doesn‘t work out
+	Bunny: I‘ll still have a new hobby to try!
+	- Maybe don‘t … nevermind
+	- Well i‘m glad… ?
+	Bunny: Tysm \:3
+	Bunny: here‘s your matchbox
+	set {Items.Matchbox} = true
+	Cat: Thank you!
+	Bunny: Was sweet talking to you
+	Bunny: now i gotta start reading!
+	[end_timeline]

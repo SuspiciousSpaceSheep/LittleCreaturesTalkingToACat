@@ -1,0 +1,27 @@
+Fish: Ahoy mate!
+join Cat left [animation="Fade In Down" length="0.0"]
+Cat: And ahoi to you
+Cat: Are you Fish?
+leave Cat [animation="Fade Out Up" length="0.0"]
+Fish: You've come to the right place
+Fish: it is indeed I
+Fish: I sing at a number of places and events, details on request
+label help
+Fish: How may I help?
+- So you're a professional singer?
+	Fish: That's right
+	Fish: with a button, a board and all that
+	label know
+	Fish: What do you want to know?
+	- 
+	- Can you sing me a song?
+		Fish: Not right now
+		Fish: I‘m pretty busy
+		Fish: (being sad)
+		join Cat left [animation="Fade In Down" length="0.0"]
+		Cat: What?
+		leave Cat [animation="Fade Out Up" length="0.0"]
+		Fish: Nothing
+		jump know
+	- There's something else...
+		jump help

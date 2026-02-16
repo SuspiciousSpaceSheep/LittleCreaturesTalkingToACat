@@ -28,12 +28,15 @@ GameManager="*res://Scripts/GameManager.gd"
 
 directories/dch_directory={
 "Bunny": "res://Dialogue/Bunny.dch",
-"Cat": "res://Dialogue/Cat.dch"
+"Cat": "res://Dialogue/Cat.dch",
+"Fish": "res://Dialogue/Fish.dch"
 }
 directories/dtl_directory={
 "bunny_default": "res://Dialogue/bunny_default.dtl",
 "bunny_first_time": "res://Dialogue/bunny_first_time.dtl",
-"bunny_lighter": "res://Dialogue/bunny_lighter.dtl"
+"bunny_lighter": "res://Dialogue/bunny_lighter.dtl",
+"bunny_testrun": "res://Dialogue/bunny_testrun.dtl",
+"fish_first_time": "res://Dialogue/fish_first_time.dtl"
 }
 layout/style_directory={
 "": "res://Dialogue/Style_Bunny.tres",
@@ -74,12 +77,23 @@ audio/channel_defaults={
 }
 }
 variables={
+"Bunny_acceptable_selected": false,
+"Bunny_bookstore_selected": false,
+"Bunny_excuseme_selected": false,
+"Bunny_no_selected": false,
+"Bunny_pondering_selected": false,
 "FirstTimeInteraction": {
-"Bunny": false
+"Bunny": false,
+"Fish": false
 },
+"Hmm_selected": false,
 "Items": {
-"Lighter": false
-}
+"Book": true,
+"Lighter": false,
+"Matchbox": false
+},
+"hello_counter": 0,
+"name": "Kitty"
 }
 layout/style_list=["res://Dialogue/Style_Bunny.tres", "res://Dialogue/Style_Cat.tres"]
 layout/default_style="res://Dialogue/Style_Bunny.tres"

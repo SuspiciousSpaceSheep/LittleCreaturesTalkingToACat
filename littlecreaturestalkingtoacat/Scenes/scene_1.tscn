@@ -21,6 +21,8 @@
 [ext_resource type="PackedScene" uid="uid://cggj4mrn0bhf7" path="res://Scenes/Creatures/shrimp.tscn" id="14_jgapd"]
 [ext_resource type="PackedScene" uid="uid://de126yvvjk0h3" path="res://Scenes/Creatures/snummoner.tscn" id="15_otufq"]
 [ext_resource type="PackedScene" uid="uid://ctj3s4rlf8axh" path="res://Scenes/PauseMenu.tscn" id="15_pausemenu"]
+[ext_resource type="Resource" uid="uid://dw087c2pxmqjs" path="res://Items/item_book.tres" id="21_tu0fs"]
+[ext_resource type="Resource" uid="uid://bnv5eeeor61rt" path="res://Items/item_matchbox.tres" id="22_tlq8e"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_23sq3"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -39,6 +41,8 @@ ambient_light_energy = 0.5
 reflected_light_source = 2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7p6yt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tu0fs"]
 
 [sub_resource type="Curve3D" id="Curve3D_7p6yt"]
 _data = {
@@ -101,6 +105,15 @@ transform = Transform3D(0.58682466, 0, -0.80971396, 0, 1, 0, 0.80971396, 0, 0.58
 
 [node name="fish" parent="." unique_id=1353934809 instance=ExtResource("10_otufq")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.414121, 1.3503482, -2.0054808)
+script = ExtResource("3_nwpuv")
+first_time_dialogue_id = "fish_first_time"
+has_interacted_var = "FirstTimeInteraction.Fish"
+
+[node name="Area3D" type="Area3D" parent="fish" unique_id=285776090]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="fish/Area3D" unique_id=671591310]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="frog" parent="." unique_id=71454787 instance=ExtResource("11_i2k7v")]
 transform = Transform3D(-0.7316987, 0, -0.68162817, 0, 1, 0, 0.68162817, 0, -0.7316987, 3.098596, 0.22353937, 0)
@@ -151,7 +164,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("9_inventory")
-inventory_items = Array[ExtResource("13_sduc3")]([ExtResource("14_bvt53")])
+inventory_items = Array[ExtResource("13_sduc3")]([ExtResource("14_bvt53"), ExtResource("21_tu0fs"), ExtResource("22_tlq8e")])
 
 [node name="MarginContainer" type="MarginContainer" parent="InventoryHUD" unique_id=81668644]
 layout_mode = 1
@@ -210,3 +223,6 @@ autowrap_mode = 3
 [connection signal="input_event" from="bunny/Area3D" to="bunny" method="_on_area_3d_input_event"]
 [connection signal="mouse_entered" from="bunny/Area3D" to="bunny" method="_on_area_3d_mouse_entered"]
 [connection signal="mouse_exited" from="bunny/Area3D" to="bunny" method="_on_area_3d_mouse_exited"]
+[connection signal="input_event" from="fish/Area3D" to="fish" method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="fish/Area3D" to="fish" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="fish/Area3D" to="fish" method="_on_area_3d_mouse_exited"]

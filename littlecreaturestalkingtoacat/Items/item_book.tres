@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://dw087c2pxmqjs"]
+
+[ext_resource type="Texture2D" uid="uid://cy8cvh3lduv4a" path="res://icon.svg" id="1_bg002"]
+[ext_resource type="Script" uid="uid://tpe5nlt0t581" path="res://Scripts/InventoryItem.gd" id="2_tcfqo"]
+
+[resource]
+script = ExtResource("2_tcfqo")
+variable_name = "Items.Book"
+item_icon = ExtResource("1_bg002")
+item_name = "Book"
+item_description = "A book covered in colorful wrapping paper. What could it be about?"

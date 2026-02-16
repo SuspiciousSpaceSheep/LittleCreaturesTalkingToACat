@@ -1,0 +1,36 @@
+Bunny: Hiii!
+label testrun
+Bunny: this is a test run \:3
+- You're bunny?
+	Bunny: yeah
+	Bunny: whats your name?
+	- Catra
+		set {name} = "Catra"
+	- Cat
+		set {name} = "Cat"
+	jump testrun
+- hello | [if {hello_counter} < 4.0] [else="hide" =""]
+	if {hello_counter} < 3.0:
+		Bunny: hello zurück {name}
+	else:
+		Bunny: goodby
+	set {hello_counter} += 1.0
+	jump testrun
+- Gimme a Lighter!
+	set {Items.Lighter} = true
+	You got a lighter!
+	[end_timeline]
+- Hmm | [if {Hmm_selected} == false] [else="hide"]
+	Bunny: so if you clicked on this dialouge choice
+	Bunny: you shouldn't be able to select it again, right?
+	join Cat left [animation="Fade In Up" length="0.0"]
+	Cat: Got it!
+	leave Cat [animation="Fade In Up" length="0.0"]
+	set {Hmm_selected} = true
+	jump testrun
+- What else?
+	Bunny: Arson!
+	join Cat left [animation="Fade In Up" length="0.0"]
+	Cat: Understandable have a nice day
+	leave Cat [animation="Fade Out Up" length="0.0"]
+	[end_timeline]
