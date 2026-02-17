@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="InventoryItem" format=3 uid="uid://pd4iqdhhs0cm"]
+
+[ext_resource type="Texture2D" uid="uid://cy8cvh3lduv4a" path="res://icon.svg" id="1_wucl4"]
+[ext_resource type="Script" uid="uid://tpe5nlt0t581" path="res://Scripts/InventoryItem.gd" id="2_2rvh6"]
+
+[resource]
+script = ExtResource("2_2rvh6")
+variable_name = "Items.Mirrorball"
+item_icon = ExtResource("1_wucl4")
+item_name = "Mirrorball"
+item_description = "I don't know what to do with that. Maybe someone else might need it?"

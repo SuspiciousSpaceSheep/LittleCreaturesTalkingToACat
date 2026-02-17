@@ -143,7 +143,7 @@ Bunny: Something a bit more socially acceptable maybe
 Bunny: …
 label tax evasion
 Bunny: How do you feel about tax evasion?
-- How is that more socially acceptable? | [if {Bunny_acceptable_selected} == false] [else="hide"]
+- How is that more socially acceptable? | [if {NewFolder.Bunny_acceptable_selected} == false] [else="hide"]
 	Bunny: I don‘t know
 	Bunny: But it must be
 	Bunny: billionaires do it all the time
@@ -151,7 +151,7 @@ Bunny: How do you feel about tax evasion?
 	Cat: Fair point
 	Cat: but still
 	leave Cat [animation="Fade Out Up" length="0.0"]
-	set {Bunny_acceptable_selected} = true
+	set {NewFolder.Bunny_acceptable_selected} = true
 	jump tax evasion
 - I‘m not so sure
 Bunny: Me neiter

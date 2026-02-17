@@ -43,6 +43,7 @@ reflected_light_source = 2
 [sub_resource type="BoxShape3D" id="BoxShape3D_7p6yt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tu0fs"]
+size = Vector3(0.27, 0.225, 0.49)
 
 [sub_resource type="Curve3D" id="Curve3D_7p6yt"]
 _data = {

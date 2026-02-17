@@ -13,8 +13,111 @@ Fish: How may I help?
 	Fish: with a button, a board and all that
 	label know
 	Fish: What do you want to know?
-	- 
-	- Can you sing me a song?
+	- What kind of places and events do you sing at?
+		Fish: I sing at partys, weddings, funerals,
+		Fish: shop openings, bars and orange juice drinking competitions
+		label questions
+		Fish: Any furter questions?
+		- You sing at partys? | [if {Fish_partys_selected} == false] [else="hide"]
+			Fish: My next party is the one at Sheeps place
+			Fish: She hired me today, actually
+			Fish: I offered her a discount since it's a special occasion
+			- Why is it so special?
+				Fish: It's confidential I'm afraid
+				Fish: You'll have to ask her yourself
+				set {Fish_partys_selected} = true
+				jump questions
+			- Aw thats nice of you
+				Fish: Nice to people, bad at business desicions
+				Fish: It's my blessing and my curse
+				set {Fish_partys_selected} = true
+				jump questions
+		- You sing at weddings? | [if {Fish_weddings_selected} == false] [else="hide"]
+			Fish: Yes I love it
+			Fish: Folks are in the mood for dancing
+			Fish: and there's usually free food
+			Fish: One time the couple liked me so much
+			Fish: they hired me three years later again to sing at their divorce
+			Fish: Good times, man
+			join Cat left [animation="Fade In Down" length="0.0"]
+			Cat: I'm a cat not a man
+			leave Cat [animation="Fade Out Up" length="0.0"]
+			Fish: My bad, cat
+			set {Fish_weddings_selected} = true
+			jump questions
+		- You sing at funerals? | [if {Fish_funerals_selected} == false] [else="hide"]
+			Fish: Usually sad songs
+			Fish: but sometimes people request real funky ones
+			Fish: I's better to cry when you can dance at the same time
+			set {Fish_funerals_selected} = true
+			jump questions
+		- You sing at shop openings? | [if {Fish_shop_selected} == false] [else="hide"]
+			Fish: I sang when racoon opened this place here for example
+			Fish: He asked me if he could pay me only half of my rate
+			Fish: if I sang the song double as fast
+			Fish: I'm a bit scared of him ever since
+			set {Fish_shop_selected} = true
+			jump questions
+		- You sing at bars? | [if {Fish_bars_selected} == false] [else="hide"]
+			Fish: Yeah it's the most common thing to sing at I think
+			Fish: Do you know the Bar Crows Crow bar?
+			Fish: I sing there quite often
+			join Cat left [animation="Fade In Down" length="0.0"]
+			Cat: The Bar Crows Crow bar?
+			leave Cat [animation="Fade Out Up" length="0.0"]
+			Fish: It's right over there, you should check it out
+			set {Fish_bars_selected} = true
+			jump questions
+		- You sing at ... orange juice drinking competitions? | [if {Fish_juice_selected} == false] [else="hide"]
+			Fish: I was as surprised as you are
+			Fish: But I would do it again if there is ever another one
+			join Cat left [animation="Fade In Down" length="0.0"]
+			Cat: What was it like?
+			leave Cat [animation="Fade Out Up" length="0.0"]
+			Fish: So everyone gathered around
+			Fish: and whoever could drink their orange juice
+			Fish: in the most creative way won
+			label prizes
+			Fish: There was a jury and prizes and everything
+			- Who was the winner? | [if {Fish_winner_selected} == false] [else="hide"]
+				Fish: A lady who drank her orange juice
+				Fish: while she was solving a math problem
+				Fish: and mixing a whole cocktail with the orange juice
+				Fish: it was quite impressive
+				set {Fish_winner_selected} = true
+				jump prizes
+			- Did you compete as well? | [if {Fish_compete_selected} == false] [else="hide"]
+				Fish: Yeah
+				Fish: I drank mine upside down like an amateur
+				set {Fish_compete_selected} = true
+				jump prizes
+			- So about those other events...
+				set {Fish_juice_selected} = true
+				jump questions
+		- I have another question
+			jump know
+	- Why do you need a button to sing? | [if {Fish_button_selected} == false] [else="hide"]
+		Fish: You see at some gigs I don't just sing my setlist
+		Fish: People walk up to me and request a song
+		Fish: And then they press the button and I sing it
+		join Cat left [animation="Fade In Down" length="0.0"]
+		<Empty Text Event>
+		Cat: And what does the button do exactly?
+		leave Cat [animation="Fade Out Up" length="0.0"]
+		Fish: Nothing honestly
+		Fish: People just seem to like to press it
+		Fish: Makes it more engaging I suppose
+		set {Fish_button_selected} = true
+		jump know
+	- Why do you need a board to sing? | [if {Fish_board_selected} == false] [else="hide"]
+		Fish: Have you ever seen a fish on a regular stage?
+		Fish: I would just lie there on the floor
+		Fish: It‘s really awkward to flop around like that
+		Fish: With this board I can just mount it on any wall and hop on it
+		Fish: It‘s the perfect stage for a fish like me
+		set {Fish_board_selected} = true
+		jump know
+	- Can you sing me a song? | [if {Fish_song_selected} == false] [else="hide"]
 		Fish: Not right now
 		Fish: I‘m pretty busy
 		Fish: (being sad)
@@ -22,6 +125,238 @@ Fish: How may I help?
 		Cat: What?
 		leave Cat [animation="Fade Out Up" length="0.0"]
 		Fish: Nothing
+		set {Fish_song_selected} = true
 		jump know
 	- There's something else...
+		- 
+		jump help
+- Here, this is for you
+	Fish: Oh no a letter
+	Fish: Can I open it with you and read it out loud?
+	Fish: I'm a bit scared of letters ever since
+	Fish: the incident
+	Fish: ...
+	label incident
+	Fish: The incident is still weighing heavy on me
+	- The incident? | [if {Fish_incident_selected} == false] [else="hide"]
+		Fish: Ahh don‘t remind me
+		- What happened?
+		- I‘m sorry
+			jump AHH
+		Fish: …
+		Fish: So there was … some time ago
+		Fish: …
+		- And?
+		- …
+		- I‘m sorry
+			jump AHH
+		Fish: You really are the curious typ aren‘t you
+		- … Yes?
+		- I‘m sorry
+			jump AHH
+		Fish: No I can‘t, ask Frog about it
+		Fish: He‘s my unlicensed therapist
+		Fish: that means he‘s allowed to tell
+		Fish: But me
+		Fish: I can't bring myself to recall that fateful day
+		- I‘m sorry
+		label AHH
+		Fish: AHH HOW DO YOU KNOW???
+		- KNOW WHAT?
+		- AAAH you have a loud voice
+			Fish: excuse me BUT
+		Fish: THE LETTER
+		Fish: this is what it said in the letter
+		Fish: word for word
+		Fish: "I'm sorry"
+		Fish: the last one from her befor she left
+		- Who?
+			THE LOVE OF MY LIFE
+			join Cat left [animation="Fade In Down" length="0.0"]
+			Cat: Oh, I‘m sor- sad about that
+			leave Cat [animation="Fade Out Up" length="0.0"]
+			Fish: don‘t be
+			Fish: it wasn‘t you who broke my heart into all those pieces
+		- Left for what?
+			Fish: I DONT KNOW
+			Fish: thats what she didn‘t say in the letter
+			Fish: just those words
+			Fish: those awful words
+			- I‘m so sor- ah condolences
+			- That's so sad!
+			Fish: it‘s devastating, earth shattering
+		join Cat left [animation="Fade In Down" length="0.0"]
+		Cat: She broke up with you via letter?
+		leave Cat [animation="Fade Out Up" length="0.0"]
+		Fish: and I never saw her again
+		Fish: just those words are all I have from her
+		Fish: And I will never know, never have closure
+		Fish: I will never be the same fish again
+		Fish: I was healing!
+		Fish: But now the memories have risen up again
+		label memories
+		Fish: oh the memories
+		- I‘m sor- excuse me for bringing it up | [if {Fish_excuseme_selected} == false] [else="hide"]
+			Fish: they say time heals all wounds
+			Fish: but I doubt that
+			set {Fish_excuseme_selected} = true
+			jump memories
+		- How long has it been?
+		Fish: By now?
+		Fish: Oh five hours
+		join Cat left [length="0.0"]
+		Cat: But thats not … long?
+		leave Cat [length="0.0"]
+		Fish: Is my pain not real then??
+		Fish: Does it not hurt deepest when it‘s new
+		- No no but …. ?
+		- I didn‘t mean it …
+		Fish: Five hours ago was our usual meeting time
+		Fish: She never missed that, not even once
+		join Cat left [length="0.0"]
+		Cat: Still, that‘s not a long time
+		Cat: she might show up
+		Cat: and explain things
+		leave Cat [length="0.1"]
+		Fish: But … how?
+		Fish: The letter is unmistakable
+		- It's just ...short
+			Fish: But it says everything
+			join Cat left [length="0.0"]
+			Cat: But what if it doesn't?
+			leave Cat [length="0.1"]
+		- Is it?
+			Fish: How can it not be?
+			join Cat left
+			Cat: She could be sorry for a lot of things
+			leave Cat
+		Fish: Are you some kind of detective?
+		join Cat left
+		Cat: I'm just a cat
+		leave Cat
+		Fish: Do you think there's a hidden meaning?
+		- Maybe?
+		- I'm not sure
+		Fish: Could you ... ~investigate~?
+		- I can try
+		- For sure
+		Fish: Oh thats exciting
+		Fish: a real detective
+		join Cat left
+		Cat: I'm not-
+		leave Cat
+		Fish: Shhh
+		Fish: Do you need to see the letter?
+		- Sure
+		- Show me
+		label figured
+		Fish: Have … you figured something out?
+		- The stain on the top… | [if {Fish_stain_selected} == false] [else="hide"]
+			Fish: Yes?
+			join Cat left
+			Cat: Ahh.. It's coffee?
+			leave Cat
+			Fish: Yes... she drank it alone
+			Fish: while she was writing the letter
+			Fish: we used to meet every day
+			Fish: and drink our coffee together at the Crow bar
+			Fish: But that was long ago
+			join Cat left
+			Cat: ...
+			leave Cat
+			set {Fish_stain_selected} = true
+			jump figured
+		- The handwriting… | [if {Fish_handwriting_selected} == false] [else="hide"]
+			Fish: Yes?
+			join Cat left
+			Cat: Uhm.. it's written hastily?
+			leave Cat
+			Fish: That's how little I meant to her in the end
+			Fish: just two scribbled words done in a hurry
+			Fish: Do you think she has forgotten me by now?
+			join Cat left
+			Cat: ...
+			leave Cat
+			set {Fish_handwriting_selected} = false
+			jump figured
+		- The tear at the bottom…
+			Fish: She didn't even bother to give me a nice letter
+			Fish: just a torn up piece of paper
+			join Cat left
+			Cat: No, that means a part is missing!
+			leave Cat
+			Fish: You ... think so?
+			join Cat left
+			Cat: I'm sure of it!
+			leave Cat
+			Fish: That's ... you are a real detective!
+			join Cat left
+			Cat: I'm just-
+			leave Cat
+			Fish: Can you find the rest of the letter??
+			- I will keep my eyes open
+			- I will search for it!
+			Fish: You are the best detective I've ever met!
+			Fish: And you are also the first I've met
+			Fish: but don't let that spoil the compliment
+			Fish: ...
+			Fish: What an emotional rollercoaster this day is
+			set {Fish_incident_selected} = true
+			jump incident
+	- Sure, i'll stay with you | [if {Fish_stay_selected} == false] [else="hide"]
+		Fish: Oh boy, here we go
+		Fish: “Dear Fish,
+		Fish: It has come to my attention that Gustavs birthday
+		Fish: has been this exact day three weeks ago
+		Fish: As you may have guessed by my way of wording it
+		Fish: I have utterly forgotten about this until now
+		Fish: To make it up to him I would request you to sing
+		Fish: a song or two for him later this day
+		Fish: The choice of song is up to you,
+		Fish: but please don‘t make it happy birthday
+		Fish: as this would be embarrasing for the both of us
+		Fish: Make sure to mount your board
+		Fish: near the vending machine so he can hear you
+		Fish: Signed
+		Fish: Racoon“
+		Fish: ...
+		- Well done!
+		- How do you feel now?
+		Fish: Uh thank you, I‘m still shaking
+		Fish: I swear he does this just to mess with me
+		- Does he know about the incident?
+			Fish: I'm sure frog has told everyone by now
+		- He could have just talked to you!
+			Fish: My thoughts exactly
+		Fish: Anyways
+		Fish: I guess I have to prepare a gig now
+		Fish: ...
+		Fish: I'ts not easy for me after the incident
+		set {Fish_stay_selected} = true
+		jump incident
+	- I'll go search for the letter now | [if {Fish_incident_selected} == true and {Fish_stay_selected}== true] [else="hide"]
+		Fish: You have my thanks, detective
+		Fish: for your help with Racoons letter
+		Fish: and the other one
+		Fish: Can I do something in return for your help?
+		join Cat left
+		Cat:  Actually yes ... do you have a coin?
+		leave Cat
+		Fish: I'm afraid not
+		Fish: but I can give you this
+		Fish: it's from one of my shows
+		set {Items.Mirrorball} = true
+		- A mirrorball?
+			Fish: It's nice isn't it
+		- Thank you
+			Fish: It's the least I can do
+		join Cat left
+		Cat: But ... what do I do with it?
+		leave Cat
+		Fish: Let some light shine on it
+		Fish: It makes for a lovely atmosphere
+		Fish: Or give it away, I don't mind
+		Fish: It's yours now
+		[end_timeline]
+	- On a second thought...
 		jump help
