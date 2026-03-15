@@ -1,3 +1,4 @@
+@tool
 extends Node3D
 class_name Interactable
 
@@ -10,7 +11,10 @@ class_name Interactable
 @export_group("Camera Settings")
 #dialoge camera settings
 @export var camera_distance: float = 0.8
-@export var camera_height: float = 0.3
+@export var camera_height: float = 1.0  ## Height on the character the camera looks at (not a camera position offset)
+@export_range(-180, 180, 1.0, "suffix:°") var camera_horizontal_angle: float = 0.0  ## Horizontal orbit angle (0=front, 90=right side)
+@export_range(-89, 89, 1.0, "suffix:°") var camera_vertical_angle: float = 0.0  ## Vertical tilt (positive=above looking down)
+@export var show_camera_preview: bool = true  ## Show camera position gizmo in editor
 
 @export_group("Outline Settings")
 # Outline shader settings
@@ -22,8 +26,15 @@ var is_mouse_over: bool = false
 
 var _outline_shader: Shader = preload("res://shaders/outline_shader.gdshader")
 
+# Editor preview nodes (internal, not saved to scene)
+var _preview_sphere: MeshInstance3D = null
+var _preview_line: MeshInstance3D = null
+
 
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	
 	# Connect to Dialogic's timeline ended signal
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
 	
@@ -107,7 +118,7 @@ func _on_area_3d_input_event(_camera: Node, event: InputEvent, _event_position: 
 			GameManager.capture_screenshot_now()
 			
 			# Focus secondary camera: distance=2.0, height=1.5
-			SecondaryCameraController.focus_on_target(self, camera_distance, camera_height)
+			SecondaryCameraController.focus_on_target(self, camera_distance, camera_height, true, false, camera_horizontal_angle, camera_vertical_angle)
 			
 			# Get the appropriate dialogue ID based on interaction history and variables
 			var dialogue_to_play = _get_dialogue_id()
@@ -133,4 +144,116 @@ func _on_area_3d_mouse_exited() -> void:
 # Release camera focus when dialogue ends
 func _on_dialogue_ended() -> void:
 	SecondaryCameraController.release_focus(false)
-			
+
+
+# ---------- Editor preview ----------
+
+func _process(_delta: float) -> void:
+	if Engine.is_editor_hint():
+		_update_camera_preview()
+
+
+## Compute the camera offset from the interactable's global position.
+func _compute_camera_offset() -> Vector3:
+	var forward = global_transform.basis.z.normalized()
+	var dir = forward.rotated(Vector3.UP, deg_to_rad(camera_horizontal_angle))
+	var right_vec = dir.cross(Vector3.UP)
+	if right_vec.length_squared() > 0.0001:
+		right_vec = right_vec.normalized()
+		dir = dir.rotated(right_vec, deg_to_rad(camera_vertical_angle))
+	return dir * camera_distance
+
+
+func _update_camera_preview() -> void:
+	if not is_inside_tree():
+		return
+
+	if not show_camera_preview:
+		if is_instance_valid(_preview_sphere):
+			_preview_sphere.visible = false
+		if is_instance_valid(_preview_line):
+			_preview_line.visible = false
+		return
+
+	var cam_offset := _compute_camera_offset()
+
+	# --- sphere at camera position ---
+	if not is_instance_valid(_preview_sphere):
+		_preview_sphere = MeshInstance3D.new()
+		_preview_sphere.top_level = true
+		var sphere_mesh := SphereMesh.new()
+		sphere_mesh.radius = 0.04
+		sphere_mesh.height = 0.08
+		_preview_sphere.mesh = sphere_mesh
+		var mat := StandardMaterial3D.new()
+		mat.albedo_color = Color(1.0, 0.7, 0.0)
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.no_depth_test = true
+		_preview_sphere.material_override = mat
+		add_child(_preview_sphere, false, Node.INTERNAL_MODE_BACK)
+
+	_preview_sphere.visible = true
+	_preview_sphere.global_position = global_position + cam_offset
+
+	# --- line + frustum wireframe ---
+	if not is_instance_valid(_preview_line):
+		_preview_line = MeshInstance3D.new()
+		_preview_line.top_level = true
+		var mat := StandardMaterial3D.new()
+		mat.albedo_color = Color(1.0, 0.7, 0.0)
+		mat.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+		mat.no_depth_test = true
+		_preview_line.material_override = mat
+		add_child(_preview_line, false, Node.INTERNAL_MODE_BACK)
+
+	_preview_line.visible = true
+	_preview_line.global_position = global_position
+
+	var im: ImmediateMesh
+	if _preview_line.mesh is ImmediateMesh:
+		im = _preview_line.mesh as ImmediateMesh
+		im.clear_surfaces()
+	else:
+		im = ImmediateMesh.new()
+		_preview_line.mesh = im
+
+	var look_at_local := Vector3.UP * camera_height
+
+	im.surface_begin(Mesh.PRIMITIVE_LINES)
+	# Line from look-at point to camera position
+	im.surface_add_vertex(look_at_local)
+	im.surface_add_vertex(cam_offset)
+	# Vertical stem from pivot to look-at point
+	im.surface_add_vertex(Vector3.ZERO)
+	im.surface_add_vertex(look_at_local)
+
+	# Small frustum/pyramid at camera position pointing toward the look-at point
+	if (cam_offset - look_at_local).length() > 0.01:
+		var look_dir := (look_at_local - cam_offset).normalized()
+		var up := Vector3.UP
+		var right := look_dir.cross(up)
+		if right.length_squared() < 0.0001:
+			right = Vector3.RIGHT
+		right = right.normalized()
+		var cam_up := right.cross(look_dir).normalized()
+		var s := 0.05  # frustum half-size
+		var l := 0.10  # frustum length
+		var tip := cam_offset
+		var bc := cam_offset + look_dir * l  # base center
+		var c0 := bc + (right + cam_up) * s
+		var c1 := bc + (-right + cam_up) * s
+		var c2 := bc + (-right - cam_up) * s
+		var c3 := bc + (right - cam_up) * s
+		# Edges from tip to base corners
+		im.surface_add_vertex(tip); im.surface_add_vertex(c0)
+		im.surface_add_vertex(tip); im.surface_add_vertex(c1)
+		im.surface_add_vertex(tip); im.surface_add_vertex(c2)
+		im.surface_add_vertex(tip); im.surface_add_vertex(c3)
+		# Base rectangle
+		im.surface_add_vertex(c0); im.surface_add_vertex(c1)
+		im.surface_add_vertex(c1); im.surface_add_vertex(c2)
+		im.surface_add_vertex(c2); im.surface_add_vertex(c3)
+		im.surface_add_vertex(c3); im.surface_add_vertex(c0)
+
+	im.surface_end()
+

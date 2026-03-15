@@ -21,6 +21,7 @@ static var instance: SecondaryCameraController = null
 # Internal state
 var is_active: bool = false
 var current_target: Node3D = null
+var current_look_at_height: float = 1.0
 var transition_tween: Tween = null
 var main_camera: Camera3D = null
 
@@ -45,7 +46,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if is_active and current_target and camera:
 		# Update camera to look at target
-		var target_pos = current_target.global_position + look_at_offset
+		var target_pos = current_target.global_position + Vector3.UP * current_look_at_height
 		camera.look_at(target_pos, Vector3.UP)
 
 
@@ -53,9 +54,9 @@ func _process(_delta: float) -> void:
 ## distance: How far from the character
 ## height: How high above the character
 ## use_character_forward: If true, positions camera based on character's facing direction
-static func focus_on_target(target: Node3D, distance: float = 2.0, height: float = 1.5, use_character_forward: bool = true, blend: bool = false) -> void:
+static func focus_on_target(target: Node3D, distance: float = 2.0, height: float = 1.5, use_character_forward: bool = true, blend: bool = false, h_angle: float = 0.0, v_angle: float = 0.0) -> void:
 	if instance:
-		instance._focus_on_target_internal(target, distance, height, use_character_forward, blend)
+		instance._focus_on_target_internal(target, distance, height, use_character_forward, blend, h_angle, v_angle)
 	else:
 		push_error("SecondaryCameraController instance not found!")
 
@@ -69,23 +70,29 @@ static func release_focus(blend: bool = false) -> void:
 
 
 ## Internal function to focus on target
-func _focus_on_target_internal(target: Node3D, distance: float, height: float, use_character_forward: bool, blend: bool) -> void:
+func _focus_on_target_internal(target: Node3D, distance: float, height: float, use_character_forward: bool, blend: bool, h_angle: float = 0.0, v_angle: float = 0.0) -> void:
 	if not target or not camera:
 		return
 	
 	current_target = target
+	current_look_at_height = height
 	
 	# Calculate camera position based on character's facing direction
 	var camera_offset: Vector3
 	
 	if use_character_forward:
-		# Get the character's forward direction and reverse it to position camera in front
 		var forward = target.global_transform.basis.z.normalized()
-		# Position camera in front of character at specified distance and height
-		camera_offset = forward * distance + Vector3.UP * height
+		# Rotate by horizontal angle around the character
+		var dir = forward.rotated(Vector3.UP, deg_to_rad(h_angle))
+		# Apply vertical angle (tilt camera up/down)
+		var right_vec = dir.cross(Vector3.UP)
+		if right_vec.length_squared() > 0.0001:
+			right_vec = right_vec.normalized()
+			dir = dir.rotated(right_vec, deg_to_rad(v_angle))
+		camera_offset = dir * distance
 	else:
 		# Use default offset if not using character forward
-		camera_offset = Vector3(0, height, distance)
+		camera_offset = Vector3(0, 0.0, distance)
 	
 	var target_camera_pos = target.global_position + camera_offset
 	
