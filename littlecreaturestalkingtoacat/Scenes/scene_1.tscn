@@ -77,7 +77,7 @@ priority_list = Dictionary[String, String]({
 "Items.Lighter": "bunny_lighter"
 })
 has_interacted_var = "FirstTimeInteraction.Bunny"
-outline_color = Color(0.45214325, 1.0285332, 0.7350013, 1)
+outline_color = Color(0.6651773, 0.42018902, 0.58701056, 1)
 outline_width = 5.0
 
 [node name="Area3D" type="Area3D" parent="bunny" unique_id=2060889078]
@@ -88,27 +88,77 @@ shape = SubResource("BoxShape3D_7p6yt")
 
 [node name="sheep" parent="." unique_id=425602908 instance=ExtResource("4_7p6yt")]
 transform = Transform3D(0.3901687, 0, 0.9207434, 0, 1, 0, -0.9207434, 0, 0.3901687, -4.6098566, 0, -1.3829682)
+script = ExtResource("3_nwpuv")
+outline_color = Color(0.55812854, 0.88827014, 0.9533337, 1)
+outline_width = 5.0
+
+[node name="Area3D" type="Area3D" parent="sheep" unique_id=1100456011]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sheep/Area3D" unique_id=270893078]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="crow" parent="." unique_id=401125302 instance=ExtResource("5_nwpuv")]
 transform = Transform3D(-0.7129935, 0, -0.7011706, 0, 1, 0, 0.7011706, 0, -0.7129935, 3.594982, 0.18171795, 0.6746131)
+script = ExtResource("3_nwpuv")
+outline_color = Color(0, 0, 0, 1)
+outline_width = 4.0
 
-[node name="duck_brown" parent="." unique_id=2098267993 instance=ExtResource("6_sduc3")]
+[node name="Area3D" type="Area3D" parent="crow" unique_id=420619822]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="crow/Area3D" unique_id=1312255517]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1447748354]
+script = ExtResource("3_nwpuv")
+outline_color = Color(0.97011036, 0.7879134, 0.6277518, 1)
+outline_width = 3.0
+
+[node name="duck_brown" parent="Node3D" unique_id=2098267993 instance=ExtResource("6_sduc3")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -2.304099, 0.26466972, -1.4563649)
 
-[node name="duck_green" parent="." unique_id=1506047605 instance=ExtResource("7_bvt53")]
+[node name="Area3D" type="Area3D" parent="Node3D/duck_brown" unique_id=227817974]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/duck_brown/Area3D" unique_id=1209162178]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
+
+[node name="duck_green" parent="Node3D" unique_id=1506047605 instance=ExtResource("7_bvt53")]
 transform = Transform3D(0.62845194, -2.1090298e-10, 0.77784836, 3.3720185e-10, 1, -1.3001021e-12, -0.77784836, 2.6310965e-10, 0.62845194, -2.6831336, 0, -1.0940851)
 
-[node name="duck_white" parent="." unique_id=366866722 instance=ExtResource("8_vlddq")]
+[node name="Area3D" type="Area3D" parent="Node3D/duck_green" unique_id=1403260306]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/duck_green/Area3D" unique_id=657945244]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
+
+[node name="duck_white" parent="Node3D" unique_id=366866722 instance=ExtResource("8_vlddq")]
 transform = Transform3D(0.6591227, 0, 0.7520354, 0, 1, 0, -0.7520354, 0, 0.6591227, -2.3215241, 0, -1.088588)
+
+[node name="Area3D" type="Area3D" parent="Node3D/duck_white" unique_id=343157036]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/duck_white/Area3D" unique_id=503326706]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="demon" parent="." unique_id=710124751 instance=ExtResource("9_a00a6")]
 transform = Transform3D(0.58682466, 0, -0.80971396, 0, 1, 0, 0.80971396, 0, 0.58682466, 5.3989677, 0, 8.276045)
+script = ExtResource("3_nwpuv")
+
+[node name="Area3D" type="Area3D" parent="demon" unique_id=1171545637]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="demon/Area3D" unique_id=163346246]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="fish" parent="." unique_id=1353934809 instance=ExtResource("10_otufq")]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 1.414121, 1.3503482, -2.0054808)
 script = ExtResource("3_nwpuv")
 first_time_dialogue_id = "fish_first_time"
 has_interacted_var = "FirstTimeInteraction.Fish"
+outline_color = Color(0.2799653, 0.70771885, 0.7902654, 1)
+outline_width = 3.0
 
 [node name="Area3D" type="Area3D" parent="fish" unique_id=285776090]
 
@@ -118,15 +168,52 @@ shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="frog" parent="." unique_id=71454787 instance=ExtResource("11_i2k7v")]
 transform = Transform3D(-0.7316987, 0, -0.68162817, 0, 1, 0, 0.68162817, 0, -0.7316987, 3.098596, 0.22353937, 0)
+script = ExtResource("3_nwpuv")
+outline_color = Color(0.4448277, 0.9653085, 0.30450583, 1)
+outline_width = 4.0
+
+[node name="Area3D" type="Area3D" parent="frog" unique_id=169317031]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="frog/Area3D" unique_id=1191968146]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="littleguyinthevendingmachine" parent="." unique_id=824898500 instance=ExtResource("12_tu0fs")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.4506588, 1.1130216, -1.3762604)
+script = ExtResource("3_nwpuv")
+outline_color = Color(0.38431123, 0.7348533, 0.41686678, 1)
+outline_width = 5.0
+
+[node name="Area3D" type="Area3D" parent="littleguyinthevendingmachine" unique_id=1754529523]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="littleguyinthevendingmachine/Area3D" unique_id=1967193984]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="racoon" parent="." unique_id=1247241840 instance=ExtResource("13_tlq8e")]
 transform = Transform3D(0.76761276, 0, -0.6409139, 0, 1, 0, 0.6409139, 0, 0.76761276, 0.6128602, 0, -0.95845795)
+script = ExtResource("3_nwpuv")
+default_dialogue_id = "bunny_default"
+outline_color = Color(0.5909247, 0.51064587, 0.41782922, 1)
+outline_width = 5.0
+
+[node name="Area3D" type="Area3D" parent="racoon" unique_id=1315173679]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="racoon/Area3D" unique_id=1283275331]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="shrimp" parent="." unique_id=1647141062 instance=ExtResource("14_jgapd")]
 transform = Transform3D(0.98962647, 0, 0.14366537, 0, 1, 0, -0.14366537, 0, 0.98962647, 3.1073914, 1.2169383, 2.6705616)
+script = ExtResource("3_nwpuv")
+outline_color = Color(0.6960829, 0.27289054, 0.38405696, 1)
+outline_width = 3.0
+
+[node name="Area3D" type="Area3D" parent="shrimp" unique_id=873772024]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="shrimp/Area3D" unique_id=1456120436]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 0, 0.14797008, 0.0049324036)
+shape = SubResource("BoxShape3D_tu0fs")
 
 [node name="snummoner" parent="." unique_id=540120582 instance=ExtResource("15_otufq")]
 transform = Transform3D(0.7683394, 0, -0.64004266, 0, 1, 0, 0.64004266, 0, 0.7683394, 6.454329, 0, 8.503286)

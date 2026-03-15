@@ -20,10 +20,22 @@ class_name Interactable
 var outline_materials: Array[ShaderMaterial] = []
 var is_mouse_over: bool = false
 
+var _outline_shader: Shader = preload("res://shaders/outline_shader.gdshader")
+
 
 func _ready() -> void:
 	# Connect to Dialogic's timeline ended signal
 	Dialogic.timeline_ended.connect(_on_dialogue_ended)
+	
+	# Auto-connect any Area3D child so signals don't need to be wired manually per creature
+	var area := _find_area_3d(self)
+	if area:
+		if not area.input_event.is_connected(_on_area_3d_input_event):
+			area.input_event.connect(_on_area_3d_input_event)
+		if not area.mouse_entered.is_connected(_on_area_3d_mouse_entered):
+			area.mouse_entered.connect(_on_area_3d_mouse_entered)
+		if not area.mouse_exited.is_connected(_on_area_3d_mouse_exited):
+			area.mouse_exited.connect(_on_area_3d_mouse_exited)
 	
 	# Find all mesh instances and collect their outline materials
 	_collect_outline_materials(self)
@@ -32,14 +44,36 @@ func _ready() -> void:
 	_set_outline_visibility(false)
 
 
+func _find_area_3d(node: Node) -> Area3D:
+	if node is Area3D:
+		return node as Area3D
+	for child in node.get_children():
+		var result := _find_area_3d(child)
+		if result:
+			return result
+	return null
+
+
 func _collect_outline_materials(node: Node) -> void:
 	if node is MeshInstance3D:
 		var mesh = node as MeshInstance3D
 		var material = mesh.get_active_material(0)
-		if material and material.next_pass and material.next_pass is ShaderMaterial:
-			var outline_mat = material.next_pass as ShaderMaterial
-			outline_materials.append(outline_mat)
-	
+		if material:
+			if material.next_pass and material.next_pass is ShaderMaterial:
+				# Already set up (e.g. bunny) — just track the existing outline pass
+				outline_materials.append(material.next_pass as ShaderMaterial)
+			else:
+				# Other creatures: create an outline pass and attach it to a
+				# per-instance duplicate so we don't mutate the shared resource
+				var outline_mat := ShaderMaterial.new()
+				outline_mat.shader = _outline_shader
+				outline_mat.set_shader_parameter("outline_color", Color(outline_color.r, outline_color.g, outline_color.b, 0.0))
+				outline_mat.set_shader_parameter("outline_width", outline_width)
+				var local_mat := material.duplicate()
+				local_mat.next_pass = outline_mat
+				mesh.set_surface_override_material(0, local_mat)
+				outline_materials.append(outline_mat)
+
 	for child in node.get_children():
 		_collect_outline_materials(child)
 
